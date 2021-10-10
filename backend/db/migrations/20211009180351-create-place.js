@@ -13,31 +13,39 @@ module.exports = {
         allowNull: false
       },
       hostId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
       price: {
-        type: Sequelize.INTEGER
+        type: Sequelize.DECIMAL(10, 2),
+        allowNull: false
       },
       address: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(100),
+        allowNull: false
       },
       city: {
-        type: Sequelize.STRING(50)
+        type: Sequelize.STRING(50),
+        allowNull: false
       },
       state: {
-        type: Sequelize.STRING(30)
+        type: Sequelize.STRING(30),
+        allowNull: false
       },
       country: {
-        type: Sequelize.STRING(50)
+        type: Sequelize.STRING(50),
+        allowNull: false
       },
       lat: {
-        type: Sequelize.INTEGER
+        type: Sequelize.DECIMAL(10, 5),
+        allowNull: true
       },
       long: {
-        type: Sequelize.INTEGER
+        type: Sequelize.DECIMAL(10, 5),
+        allowNull: true
       },
       description: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
