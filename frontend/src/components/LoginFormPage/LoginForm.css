@@ -5,6 +5,10 @@
   margin: 10px;
 }
 
+#login-form > * {
+  padding: 5px;
+}
+
 .errorText {
   color: red;
   list-style-type: none;

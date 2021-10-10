@@ -23,6 +23,16 @@ function App() {
               <span>Ready to find a boring place?</span>
               <button id='explore-btn'>Explore now</button>
             </div>
+            <div id='discover-div'>
+              <div className='discover-city'>Lubbock, TX</div>
+              <div className='discover-city'>Cheasapeak, VA</div>
+              <div className='discover-city'>Fort Wayne, IN</div>
+              <div className='discover-city'>San Bernardio, CA</div>
+            </div>
+            <div id='footer'>
+              <a href=''>My Github</a>
+              <a href=''>My LinkedIn</a>
+            </div>
           </Route>
           <Route path="/signup">
             <SignupFormPage />
