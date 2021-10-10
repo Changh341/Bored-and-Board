@@ -1,0 +1,21 @@
+#navigationBar {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  height: 50px;
+  margin-bottom: 0;
+}
+
+.rightNavi {
+  display: flex;
+  flex-direction: row;  
+  margin-right: 20px;
+  width: 200px;
+}
+
+#leftNav {
+  position: absolute;
+  left:7.5%
+}
