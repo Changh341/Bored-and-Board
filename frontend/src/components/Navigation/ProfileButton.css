@@ -1,0 +1,60 @@
+#profile-div {
+  height: auto;
+  width: 150px;
+  background-color: white;
+  z-index: 1;
+  border: 1px solid transparent;
+  border-radius: 12px;
+}
+
+#profile-btn {
+  position: absolute;
+  border: 1px solid transparent; 
+  background: transparent;
+}
+
+#profile-btn:hover {
+  border: 1px solid grey;
+  border-radius: 15px;
+  cursor: pointer;
+  background:white;
+}
+
+.profile-dropdown {
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+.profile-dropdown > li {
+  margin-top: 5px;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end ;
+
+}
+
+
+.session-user-btn {
+  background-color: transparent;
+  border: 1px solid transparent;
+  width: 100%;
+}
+
+.session-user-btn:hover {
+  text-decoration: underline;
+  background-color: lightgrey;
+  border: 1px solid lightblue;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#dropdown-greetuser {
+  display: flex;
+  justify-content: center ;
+  font-weight: 700;
+  width: 100%;
+  border-bottom: 1px solid black;
+}

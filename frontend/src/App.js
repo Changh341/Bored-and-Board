@@ -30,8 +30,8 @@ function App() {
               <div className='discover-city'>San Bernardio, CA</div>
             </div>
             <div id='footer'>
-              <a href=''>My Github</a>
-              <a href=''>My LinkedIn</a>
+              <a target='_blank' href='https://github.com/Changh341'>My Github</a>
+              <a target='_blank' href='https://www.linkedin.com/in/hao-chang-459128b1'>My LinkedIn</a>
             </div>
           </Route>
           <Route path="/signup">

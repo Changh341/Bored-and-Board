@@ -18,4 +18,14 @@
   background-color: white;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 285px;
+  width: 250px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  box-shadow: 0 0 2px black;
+}
+
+#signup-form > * {
+  margin: 5px;
 }
