@@ -5,6 +5,7 @@ import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import LoginFormModal from '../LoginFormPage';
 
+
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
 
@@ -29,6 +30,7 @@ function Navigation({ isLoaded }) {
       <li>
         <div id='leftNav'>
           <NavLink exact to="/">Home</NavLink>
+          <NavLink to='/places'>Browse</NavLink>
         </div>
         {isLoaded && sessionLinks}
       </li>
