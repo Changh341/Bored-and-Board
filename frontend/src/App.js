@@ -24,10 +24,12 @@ function App() {
               <button id='explore-btn'>Explore now</button>
             </div>
             <div id='discover-div'>
-              <div className='discover-city'>Lubbock, TX</div>
-              <div className='discover-city'>Cheasapeak, VA</div>
-              <div className='discover-city'>Fort Wayne, IN</div>
-              <div className='discover-city'>San Bernardio, CA</div>
+              <div className='discover-city' id='plano'>Plano, TX</div>
+              <div className='discover-city' id='lubbock'>Lubbock, TX</div>
+              <div className='discover-city' id='cheasapeak'>Cheasapeak, VA</div>
+              <div className='discover-city' id='fort-wayne'>Fort Wayne, IN</div>
+              <div className='discover-city' id='san-bernardino'>San Bernardino, CA</div>
+              <div className='discover-city' id='stockton'>Stockton, CA</div>
             </div>
             <div id='footer'>
               <a target='_blank' href='https://github.com/Changh341'>My Github</a>

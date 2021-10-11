@@ -1,75 +1,116 @@
 /* Splash Page CSS */
+
 #splash-div {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  left: 0;
-  top: 0;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  background-image: url('https://i.imgur.com/Zhvn9bi.jpg');
-  width: 100%;
-  height: 60%;
-  margin: 0;
-  padding: 0;
-  z-index: -1;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('https://i.imgur.com/Zhvn9bi.jpg');
+    width: 100%;
+    height: 60%;
+    margin: 0;
+    padding: 0;
+    z-index: -1;
 }
 
 #explore-btn {
-  width: 150px;
-  margin-top: 20px;
-  padding: 10px;
-  border: 1px solid #e6e6e6;
-  background: linear-gradient(to left, lightblue, lightgrey );
-  border-radius: 20px;
-  font-weight: bold;
+    width: 150px;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #e6e6e6;
+    background: linear-gradient(to left, lightblue, lightgrey);
+    border-radius: 20px;
+    font-weight: bold;
 }
 
 #explore-btn:hover {
-  cursor: pointer;
-  text-decoration: underline;
-  box-shadow: 0 0 1px white;
+    cursor: pointer;
+    text-decoration: underline;
+    box-shadow: 0 0 1px white;
 }
 
 #discover-div {
-  position: absolute;
-  padding: 0;
-  left: 0;
-  top: 60%;
-  width: 100%;
-  height: 35%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-#discover-div > * {
-  border: 1px solid red;
-  border-radius: 12px;
-  padding: 5px;
+    position: absolute;
+    padding: 0;
+    left: 0;
+    top: 60%;
+    width: 100%;
+    height: 35%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .discover-city {
-  width: 300px;
-  height: 175px;
-  margin-left: 53.5px;
+    width: 13%;
+    height: 60%;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px solid black;
+    box-shadow: 2px 1px 2px black;
+    border-radius: 12px;
+    padding: 5px;
+    color: darkblue;
+    font-weight: 900;
+}
+
+.discover-city:hover {
+    transition: 0.5s;
+    width: 14%;
+    height: 63%;
+    border: none;
+    box-shadow: 0 0 transparent;
 }
 
 #footer {
-  position: absolute;
-  background-color: lightgray;
-  left: 0;
-  top: 95%;
-  width:100%;
-  height: 37px;
-  display: flex;
-  align-items: center;
+    position: absolute;
+    background-color: lightgray;
+    left: 0;
+    top: 95.5%;
+    width: 100%;
+    height: 4.5%;
+    display: flex;
+    align-items: center;
 }
 
-#footer > * {
-  padding-left: 10px;
-  color: black;
+#footer>* {
+    padding-left: 10px;
+    color: black;
+}
+
+#plano {
+    background-image: url('https://www.iconma.com/wp-content/uploads/2019/02/img-12.jpg');
+    background-size: cover;
+}
+
+#lubbock {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/c/c7/LubbockSkyline2013.jpg');
+    background-size: cover;
+}
+
+#cheasapeak {
+    background-image: url('https://mediad.publicbroadcasting.net/p/wsdl/files/styles/x_large/public/201706/chesapeake_visit_facebook.png');
+    background-size: cover;
+}
+
+#fort-wayne {
+    background-image: url('https://ogden_images.s3.amazonaws.com/www.news-sentinel.com/images/2019/02/19134337/103_aaa036e4cb16038f90e128d8e39c714f_m.jpg');
+    background-size: cover;
+}
+
+#san-bernardino {
+    background-image: url('https://s3-prod.pionline.com/s3fs-public/San%20Bernardino%20County%20Court_i.jpg');
+    background-size: cover;
+}
+
+#stockton {
+    background-image: url('https://s3.us-west-1.amazonaws.com/stockton-2019/images/_1200x630_crop_center-center_82_none/downtown-stockton.jpg');
+    background-size: cover;
 }

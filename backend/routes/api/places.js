@@ -5,61 +5,55 @@ const { Place } = require('../../db/models');
 
 const router = express.Router();
 
-router.get('/', asyncHandler(async (req, res) => {
-  if (false) {
+router.get('/', asyncHandler(async(req, res) => {
+
     const places = await Place.findAll({
-      limit: 20
+        limit: 20
     })
     if (places) {
-      res.json({ places })
-    } else {
-      res.send('Fail to load. Please try refreshing.')
+        res.json({ places })
     }
-  }
+
 }))
 
-router.get('/:id', asyncHandler(async (req, res) => {
-  if (false) {
+router.get('/:id', asyncHandler(async(req, res) => {
+
     const id = req.params.id
     const place = await Place.findByPk(id)
     if (place) {
-      res.json({ place })
-    } else {
-      res.send('Oops no location found')
+        res.json({ place })
     }
-  }
+
 }))
 
-router.post('/', asyncHandler(async (req, res) => {
-  if (false) {
-    const { name, hostId, price, address, city, state, description } = req.body
-    const newPlace = await Place.
-      Place.create({
+router.post('/', asyncHandler(async(req, res) => {
+
+    const { name, hostId, price, address, city, state, country, description } = req.body
+    const newPlace = await Place.create({
         name,
         hostId,
         price,
         address,
         city,
         state,
-        country: 'United States',
+        country,
         description
-      })
-    return await Place.Place.findByPk(newPlace.id)
-  }
+    })
+    return res.json({ newPlace });
+
+
 }))
 
-router.delete('/', asyncHandler(async (req, res) => {
-  if (false) {
+router.delete('/', asyncHandler(async(req, res) => {
+
     const id = req.params.id;
     const { hostId } = req.body
     const place = await Place.findByPk(id)
     if (place.hostId === hostId) {
-      const deletion = await Place.destroy({ where: { id } });
-      if (deletion) {
-        res.send('sucess')
-      } else {
-        res.send('deletion failure')
-      }
+        const deletion = await Place.destroy({ where: { id } });
+        if (deletion) {
+            return res.json({ message: 'success' });
+        }
     }
-  }
+
 }))
