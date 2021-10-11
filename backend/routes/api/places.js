@@ -2,6 +2,7 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 
 const { Place } = require('../../db/models');
+const { requireAuth, restoreUser } = require('../../utils/auth');
 
 const router = express.Router();
 
@@ -26,7 +27,6 @@ router.get('/:id', asyncHandler(async (req, res) => {
 }))
 
 router.post('/', asyncHandler(async (req, res) => {
-
   const { name, hostId, price, address, city, state, country, description } = req.body
   const newPlace = await Place.create({
     name,

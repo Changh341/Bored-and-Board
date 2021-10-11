@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
+import { useHistory } from "react-router";
 import * as sessionActions from '../../store/session';
 import './ProfileButton.css'
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
-
+  const history = useHistory()
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
@@ -24,6 +25,11 @@ function ProfileButton({ user }) {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
+  const userHosting = (event) => {
+    event.preventDefault();
+    history.push('/myplaces')
+  }
+
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
@@ -40,6 +46,7 @@ function ProfileButton({ user }) {
             <span id='dropdown-greetuser'>Hello {user.username}!</span>
             <li><button className='session-user-btn'>My Profile</button></li>
             <li><button className='session-user-btn'>My Bookings</button></li>
+            <li><button className='session-user-btn' onClick={userHosting}>My Hostings</button></li>
             <li>
               <button className='session-user-btn' onClick={logout}>Log Out</button>
             </li>

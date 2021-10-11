@@ -6,6 +6,8 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import './App.css'
 import PlaceBrowser from "./components/PlaceBrowser";
+import PlaceManager from "./components/PlaceManagement";
+import CreatePlaceForm from "./components/PlaceFormPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -42,6 +44,12 @@ function App() {
           </Route>
           <Route path='/places'>
             <PlaceBrowser />
+          </Route>
+          <Route path='/myplaces'>
+            <PlaceManager />
+          </Route>
+          <Route path='/addlisting'>
+            <CreatePlaceForm />
           </Route>
         </Switch>
       )}
