@@ -55,12 +55,12 @@ router.post('/', asyncHandler(async (req, res) => {
 
 }))
 
-router.delete('/', asyncHandler(async (req, res) => {
+router.delete('/:hostId/:id', asyncHandler(async (req, res) => {
 
-  const id = req.params.id;
-  const { hostId } = req.body
+  const { hostId, id } = req.params;
   const place = await Place.findByPk(id)
-  if (place.hostId === hostId) {
+  if (place.hostId == hostId) {
+    console.log('YAY UR AN OWNER!!!!!!!!!!!!')
     const deletion = await Place.destroy({ where: { id } });
     if (deletion) {
       return res.json({ message: 'success' });
