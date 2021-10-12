@@ -1,0 +1,11 @@
+.place-card {
+  width: 250px;
+  height: 200px;
+  border: 1px solid red;
+}
+
+.browser-window {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
