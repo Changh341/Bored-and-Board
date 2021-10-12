@@ -8,6 +8,7 @@ import './App.css'
 import PlaceBrowser from "./components/PlaceBrowser";
 import PlaceManager from "./components/PlaceManagement";
 import CreatePlaceForm from "./components/PlaceFormPage";
+import PlaceDetail from "./components/PlaceDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -42,7 +43,7 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path='/places'>
+          <Route exact path='/places'>
             <PlaceBrowser />
           </Route>
           <Route path='/myplaces'>
@@ -50,6 +51,9 @@ function App() {
           </Route>
           <Route path='/addlisting'>
             <CreatePlaceForm />
+          </Route>
+          <Route path='/places/:id'>
+            <PlaceDetail />
           </Route>
         </Switch>
       )}

@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
 import { getPlace } from '../../store/place';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
+import PlaceDetail from '../PlaceDetails';
 import './browser.css'
 
 const PlaceBrowser = () => {
@@ -25,7 +26,7 @@ const PlaceBrowser = () => {
           place.map((place) => {
             if (place) {
               return (
-                <NavLink key={place.id} to={`/places/${place.id}`}>
+                <NavLink key={place.id} to={`/places/${place.id}`} >
                   <div className='place-card'>
                     {place.name}
                     {'$' + place.price}

@@ -1,0 +1,4 @@
+.manager-window {
+  display: flex;
+  flex-direction: row;
+}

@@ -29,7 +29,7 @@ function Navigation({ isLoaded }) {
     <ul id='navigationBar'>
       <li>
         <div id='leftNav'>
-          <NavLink exact to="/">Home</NavLink>
+          <NavLink exact to="/"><img id='logohead' src='https://i.imgur.com/7zUVqWj.png'></img></NavLink>
           <NavLink to='/places'>Browse</NavLink>
         </div>
         {isLoaded && sessionLinks}

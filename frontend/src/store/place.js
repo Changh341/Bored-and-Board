@@ -1,9 +1,10 @@
 import { csrfFetch } from './csrf';
-const initialState = { list: [], hostList: [] };
+const initialState = { list: [], hostList: [], details: {} };
 
 const POPULATE = 'place/POPULATE';
-const ADD = 'place/ADD';
 const HOST_POPULATE = 'place/HOST_POPULATE';
+const LOAD_ONE = 'place/LOAD_ONE'
+const ADD = 'place/ADD';
 const DELETE = 'place/DELETE';
 
 const load = (list) => ({
@@ -14,6 +15,11 @@ const load = (list) => ({
 const hostLoad = (hostList) => ({
   type: HOST_POPULATE,
   hostList
+})
+
+const loadOne = (details) => ({
+  type: LOAD_ONE,
+  details
 })
 
 const addPlace = (place) => ({
@@ -40,6 +46,16 @@ export const getHostPlace = (id = 0) => async (dispatch) => {
     if (response.ok) {
       const list = await response.json();
       dispatch(hostLoad(list));
+    }
+  }
+}
+
+export const getOne = (id) => async (dispatch) => {
+  if (id) {
+    const response = await fetch(`/api/places/${id}`)
+    if (response.ok) {
+      const detail = await response.json()
+      dispatch(loadOne(detail))
     }
   }
 }
@@ -100,6 +116,9 @@ const placeReducer = (state = initialState, action) => {
         hostList: sortList(action.hostList)
       };
     }
+    case LOAD_ONE: {
+      return { ...state, details: action.details }
+    }
     case ADD: {
       if (!state[action.place.id]) {
         const newState = {
@@ -120,7 +139,6 @@ const placeReducer = (state = initialState, action) => {
       };
     }
     case DELETE: {
-      console.log(state, action.place)
       delete state[action.place]
       return {
         ...state,

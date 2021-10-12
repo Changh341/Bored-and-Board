@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
 import { destroyPlace, getHostPlace } from '../../store/place';
 import { useHistory } from 'react-router-dom';
-
+import './management.css'
 
 const PlaceManager = () => {
   const dispatch = useDispatch()
@@ -43,9 +43,10 @@ const PlaceManager = () => {
 
   return (
     <>
-
-      <div className='manager-window'>
+      <div id='manager-toolkit'>
         <button onClick={(event) => addPlace()}>Create listing</button>
+      </div>
+      <div className='manager-window'>
         {
           place.map((place) => {
             if (place) {
