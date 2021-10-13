@@ -9,6 +9,7 @@ import PlaceBrowser from "./components/PlaceBrowser";
 import PlaceManager from "./components/PlaceManagement";
 import CreatePlaceForm from "./components/PlaceFormPage";
 import EditPlaceForm from "./components/PlaceEditForm";
+import BookingUserView from "./components/BookingUserView";
 
 function App() {
   const dispatch = useDispatch();
@@ -54,6 +55,9 @@ function App() {
           </Route>
           <Route path='/myplaces/edit/:id'>
             <EditPlaceForm />
+          </Route>
+          <Route path='/mybookings'>
+            <BookingUserView />
           </Route>
         </Switch>
       )}

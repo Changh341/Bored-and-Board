@@ -51,6 +51,11 @@ module.exports = (sequelize, DataTypes) => {
   });
   User.associate = function (models) {
     User.hasMany(models.Place, { foreignKey: 'hostId' })
+    User.belongsToMany(models.Place, {
+      through: "booking",
+      otherKey: 'spotId',
+      foreignKey: 'userId'
+    })
     User.prototype.toSafeObject = function () { // remember, this cannot be an arrow function
       const { id, username, email } = this; // context will be the User instance
       return { id, username, email };
