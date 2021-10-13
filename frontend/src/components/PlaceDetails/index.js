@@ -1,36 +1,45 @@
-import { useEffect } from "react"
+
 import { useDispatch, useSelector } from "react-redux"
-import { useParams } from "react-router-dom"
-import { getOne } from "../../store/place"
+import './placedetail.css'
 
 
-const PlaceDetail = () => {
-  const { id } = useParams()
-  const place = useSelector((state) => state.place.details)
-  const userId = useSelector((state) => state.session.user.id)
-  const dispatch = useDispatch()
-  const editTool = (userId == place.hostId)
+
+const PlaceDetail = ({ displayDetail, id }) => {
+  const place = useSelector((state) => state.place)
+  const userId = useSelector((state) => {
+    if (state.session.user) {
+      return state.session.user.id
+    } else { return null }
+  })
+
+  const editTool = (userId == place[id].hostId)
   console.log(editTool)
-  useEffect(() => {
-    dispatch(getOne(id))
-  }, [id])
+
 
   if (!place) {
     return <div>Did not load</div>
   }
   const edit = () => {
-    return <div>
-      <button>Edit</button>
-    </div>
+    return <button>Edit</button>
+
   }
 
-  return (<div>
-    {editTool ? edit() : null}
-    <h1>{place.name}</h1>
-    <p>{place.address}, {place.city}, {place.state}</p>
-    <p>{place.description}</p>
-    <span>${place.price}/night</span>
-  </div>)
+  return (
+    <>
+      <div id='modal-container'>
+        <div className='modal-background' onClick={(event) => displayDetail(false)}>
+        </div>
+        <div id='detailmodal'>
+          <button className='x-btn' onClick={(event) => displayDetail(false)}> X </button>
+          {editTool ? edit() : null}
+          <h1>{place[id].name}</h1>
+          <p>{place[id].address}, {place[id].city}, {place[id].state}</p>
+          <p>{place[id].description}</p>
+          <span>${place[id].price}/night</span>
+        </div>
+      </div>
+    </>
+  )
 }
 
 export default PlaceDetail

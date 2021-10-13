@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
 import { destroyPlace, getHostPlace } from '../../store/place';
-import { useHistory } from 'react-router-dom';
+import { useHistory, NavLink } from 'react-router-dom';
 import './management.css'
+import EditPlaceForm from '../PlaceEditForm';
 
 const PlaceManager = () => {
   const dispatch = useDispatch()
@@ -50,12 +51,20 @@ const PlaceManager = () => {
         {
           place.map((place) => {
             if (place) {
-
               return (
                 <div key={place.id} className='place-card'>
                   {place.name}
-                  {'$' + place.price}
-                  <button onClick={(event) => deletePlace(hostId, place.id)}>Delete</button>
+                  <div>
+
+                    {'$' + place.price + '/night'}
+                  </div>
+                  <div>
+                    {place.description}
+                  </div>
+                  <div>
+                    <NavLink className='edit-btn' to={`/myplaces/edit/${place.id}`}>Edit</NavLink>
+                    <button onClick={(event) => deletePlace(hostId, place.id)}>Delete</button>
+                  </div>
                 </div>
               )
             }

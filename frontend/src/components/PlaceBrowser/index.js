@@ -15,6 +15,9 @@ const PlaceBrowser = () => {
     dispatch(getPlace());
   }, [dispatch]);
 
+  const [displayDetail, setDisplayDetail] = useState(false)
+  const [details, setDetails] = useState('')
+
   if (!place) {
     return null
   }
@@ -26,16 +29,20 @@ const PlaceBrowser = () => {
           place.map((place) => {
             if (place) {
               return (
-                <NavLink key={place.id} to={`/places/${place.id}`} >
+                <div key={place.id} onClick={(event) => {
+                  setDetails(place.id)
+                  setDisplayDetail(true)
+                }} >
                   <div className='place-card'>
                     {place.name}
                     {'$' + place.price}
                   </div>
-                </NavLink>
+                </div>
               )
             }
           })
         }
+        {displayDetail && <PlaceDetail displayDetail={setDisplayDetail} id={details} />}
       </div>
     </>
   )

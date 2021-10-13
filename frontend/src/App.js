@@ -8,7 +8,7 @@ import './App.css'
 import PlaceBrowser from "./components/PlaceBrowser";
 import PlaceManager from "./components/PlaceManagement";
 import CreatePlaceForm from "./components/PlaceFormPage";
-import PlaceDetail from "./components/PlaceDetails";
+import EditPlaceForm from "./components/PlaceEditForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -46,14 +46,14 @@ function App() {
           <Route exact path='/places'>
             <PlaceBrowser />
           </Route>
-          <Route path='/myplaces'>
+          <Route exact path='/myplaces'>
             <PlaceManager />
           </Route>
           <Route path='/addlisting'>
             <CreatePlaceForm />
           </Route>
-          <Route path='/places/:id'>
-            <PlaceDetail />
+          <Route path='/myplaces/edit/:id'>
+            <EditPlaceForm />
           </Route>
         </Switch>
       )}

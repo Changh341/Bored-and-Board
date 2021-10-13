@@ -41,7 +41,7 @@ const CreatePlaceForm = () => {
 
     const place = await dispatch(createPlace(payload));
     if (place) {
-      history.push(`/place/${place.id}`);
+      history.push('/myplaces');
     }
   }
 

@@ -6,6 +6,7 @@ const HOST_POPULATE = 'place/HOST_POPULATE';
 const LOAD_ONE = 'place/LOAD_ONE'
 const ADD = 'place/ADD';
 const DELETE = 'place/DELETE';
+const EDIT = 'place/EDIT'
 
 const load = (list) => ({
   type: POPULATE,
@@ -30,6 +31,12 @@ const addPlace = (place) => ({
 const deletePlace = (place) => ({
   type: DELETE,
   place
+})
+
+const editPlace = (place, id) => ({
+  type: EDIT,
+  place,
+  id
 })
 
 export const getPlace = () => async (dispatch) => {
@@ -81,6 +88,21 @@ export const destroyPlace = (hostId, id) => async (dispatch) => {
   })
   if (response.ok) {
     dispatch(deletePlace(id))
+  }
+}
+
+export const changePlace = (data, id) => async (dispatch) => {
+  const response = await csrfFetch(`/api/places/edit/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  if (response.ok) {
+    const place = await response.json()
+    dispatch(editPlace(place, id))
+    return place
   }
 }
 
@@ -142,10 +164,27 @@ const placeReducer = (state = initialState, action) => {
       delete state[action.place]
       return {
         ...state,
-
       };
     }
-
+    case EDIT: {
+      if (!state[action.id]) {
+        const newState = {
+          ...state,
+          [action.id]: action.place
+        };
+        const placeList = newState.list.map((id) => newState[id]);
+        placeList.push(action.place);
+        newState.list = sortList(placeList);
+        return newState;
+      }
+      return {
+        ...state,
+        [action.id]: {
+          ...state[action.id],
+          ...action.place
+        }
+      };
+    }
     default: return state;
   }
 };

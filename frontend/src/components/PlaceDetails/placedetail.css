@@ -1,0 +1,40 @@
+.modal-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(41, 34, 34, 0.6);
+  top:0;
+  left:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+#detailmodal {
+  background-color: white;
+  width: 500px;
+  height: 400px;
+  z-index: 2;
+}
+
+#modal-container {
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.x-btn {
+  background-color: transparent;
+  border: none;
+  font-size: medium;
+}
+
+.x-btn:hover {
+  cursor: pointer;
+}

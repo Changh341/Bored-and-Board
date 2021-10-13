@@ -10,7 +10,6 @@ router.get('/', asyncHandler(async (req, res) => {
 
   const places = await Place.findAll({
     limit: 10,
-    attributes: ['id', 'name', 'price']
   })
   if (places) {
     res.json(places)
@@ -23,7 +22,6 @@ router.get('/management/:id', requireAuth, asyncHandler(async (req, res) => {
   const places = await Place.findAll({
     limit: 10,
     where: { hostId: id },
-    attributes: ['id', 'name', 'price']
   })
   if (places) {
     res.json(places)
@@ -58,6 +56,26 @@ router.post('/', asyncHandler(async (req, res) => {
 
 
 }))
+
+router.put('/edit/:id', asyncHandler(async (req, res) => {
+  const { name, hostId, price, address, city, state, country, description } = req.body
+  const { id } = req.params
+  const updated = await Place.update({
+    name,
+    hostId,
+    price,
+    address,
+    city,
+    state,
+    country,
+    description
+  }, { where: { id } })
+  console.log(req.body)
+  return res.json(req.body);
+
+
+}))
+
 
 router.delete('/:hostId/:id', asyncHandler(async (req, res) => {
 
