@@ -10,6 +10,7 @@ import PlaceManager from "./components/PlaceManagement";
 import CreatePlaceForm from "./components/PlaceFormPage";
 import EditPlaceForm from "./components/PlaceEditForm";
 import BookingUserView from "./components/BookingUserView";
+import { NavLink } from "react-router-dom";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ function App() {
           <Route exact path="/">
             <div id='splash-div'>
               <span>Ready to find a boring place?</span>
-              <button id='explore-btn'>Explore now</button>
+              <NavLink id='explore-btn' to='/places'>Explore</NavLink>
             </div>
             <div id='discover-div'>
               <div className='discover-city' id='plano'>Plano, TX</div>

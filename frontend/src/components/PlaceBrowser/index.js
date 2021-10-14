@@ -34,8 +34,8 @@ const PlaceBrowser = () => {
                   setDisplayDetail(true)
                 }} >
                   <div className='place-card'>
-                    {place.name}
-                    {'$' + place.price}
+                    <div> {place.name}</div>
+                    <div>{'$' + place.price}/Night</div>
                   </div>
                 </div>
               )

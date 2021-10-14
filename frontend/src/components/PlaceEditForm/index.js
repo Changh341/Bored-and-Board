@@ -49,55 +49,61 @@ const EditPlaceForm = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type='text'
-          placeholder='Give your listing a title'
-          required
-          value={name}
-          onChange={(event) => { setName(event.target.value) }} />
-        <input
-          className='number-input'
-          type='number'
-          min='0.00'
-          max='100000.00'
-          step='0.01'
-          placeholder='Set your price per night'
-          required
-          value={price}
-          onChange={(event) => { setPrice(parseFloat(event.target.value).toFixed(2)) }} />
-        <input
-          type='text'
-          placeholder='Address'
-          required
-          value={address}
-          onChange={(event) => { setAddress(event.target.value) }} />
-        <input
-          type='text'
-          value='United States'
-          disabled={true} />
-        <select onChange={(event) => setState(event.target.value)} value={state}>
-          {states.map(state =>
-            <option key={state}>{state}</option>
-          )}
-        </select>
-        <input
-          type='text'
-          placeholder='City'
-          required
-          value={city}
-          onChange={(event) => { setCity(event.target.value) }} />
-        <textarea
-          placeholder='Describe your place in 1000 characters. How many beds and baths? Whats included?'
-          cols='80'
-          rows='15'
-          maxLength='1000'
-          value={description}
-          onChange={(event) => { setDescription(event.target.value) }} />
-        <button type="submit">Submit Changes</button>
-      </form>
-      <button onClick={(event) => goBack()}>Back</button>
+    <div className='newplaceform-window'>
+      <div className='place-form'>
+        <form onSubmit={handleSubmit}>
+          <input
+            type='text'
+            placeholder='Give your listing a title'
+            required
+            value={name}
+            onChange={(event) => { setName(event.target.value) }} />
+          <input
+            className='number-input'
+            type='number'
+            min='0.00'
+            max='100000.00'
+            step='0.01'
+            placeholder='Set your price per night'
+            required
+            value={price}
+            onChange={(event) => { setPrice(parseFloat(event.target.value).toFixed(2)) }} />
+          <input
+            type='text'
+            placeholder='Address'
+            required
+            value={address}
+            onChange={(event) => { setAddress(event.target.value) }} />
+          <input
+            type='text'
+            value='United States'
+            disabled={true} />
+          <select onChange={(event) => setState(event.target.value)} value={state}>
+            {states.map(state =>
+              <option key={state}>{state}</option>
+            )}
+          </select>
+          <input
+            type='text'
+            placeholder='City'
+            required
+            value={city}
+            onChange={(event) => { setCity(event.target.value) }} />
+          <textarea
+            placeholder='Describe your place in 1000 characters. How many beds and baths? Whats included?'
+            cols='80'
+            rows='15'
+            maxLength='1000'
+            value={description}
+            onChange={(event) => { setDescription(event.target.value) }} />
+          <div>
+            <button type="submit">Submit Changes</button>
+          </div>
+        </form>
+        <div>
+          <button onClick={(event) => goBack()}>Back</button>
+        </div>
+      </div>
     </div>
   )
 }

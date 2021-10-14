@@ -30,7 +30,6 @@ function Navigation({ isLoaded }) {
       <li>
         <div id='leftNav'>
           <NavLink exact to="/"><img id='logohead' src='https://i.imgur.com/7zUVqWj.png'></img></NavLink>
-          <NavLink to='/places'>Browse</NavLink>
         </div>
         {isLoaded && sessionLinks}
       </li>

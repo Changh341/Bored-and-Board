@@ -52,7 +52,7 @@ const PlaceManager = () => {
           place.map((place) => {
             if (place) {
               return (
-                <div key={place.id} className='place-card'>
+                <div key={place.id} className='manage-card'>
                   {place.name}
                   <div>
 

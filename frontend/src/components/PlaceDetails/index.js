@@ -20,7 +20,7 @@ const PlaceDetail = ({ displayDetail, id }) => {
     return <div>Did not load</div>
   }
   const edit = () => {
-    return <button>Edit</button>
+    return <button id='edit-btn'>Edit</button>
 
   }
 
@@ -31,8 +31,8 @@ const PlaceDetail = ({ displayDetail, id }) => {
         </div>
         <div id='detailmodal'>
           <button className='x-btn' onClick={(event) => displayDetail(false)}> X </button>
-          {editTool ? edit() : null}
           <h1>{place[id].name}</h1>
+          {editTool ? edit() : null}
           <p>{place[id].address}, {place[id].city}, {place[id].state}</p>
           <p>{place[id].description}</p>
           <span>${place[id].price}/night</span>

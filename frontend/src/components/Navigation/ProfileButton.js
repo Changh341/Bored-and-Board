@@ -25,6 +25,11 @@ function ProfileButton({ user }) {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
+  const userBooking = (event) => {
+    event.preventDefault();
+    history.push('/mybookings')
+  }
+
   const userHosting = (event) => {
     event.preventDefault();
     history.push('/myplaces')
@@ -45,7 +50,7 @@ function ProfileButton({ user }) {
           <ul className="profile-dropdown">
             <span id='dropdown-greetuser'>Hello {user.username}!</span>
             <li><button className='session-user-btn'>My Profile</button></li>
-            <li><button className='session-user-btn'>My Bookings</button></li>
+            <li><button className='session-user-btn' onClick={userBooking}>My Bookings</button></li>
             <li><button className='session-user-btn' onClick={userHosting}>My Hostings</button></li>
             <li>
               <button className='session-user-btn' onClick={logout}>Log Out</button>
