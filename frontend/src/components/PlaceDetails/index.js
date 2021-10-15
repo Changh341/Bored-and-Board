@@ -1,5 +1,6 @@
 
 import { useDispatch, useSelector } from "react-redux"
+import BookingForm from "../BookingForm/detailForm.js"
 import './placedetail.css'
 
 
@@ -31,11 +32,18 @@ const PlaceDetail = ({ displayDetail, id }) => {
         </div>
         <div id='detailmodal'>
           <button className='x-btn' onClick={(event) => displayDetail(false)}> X </button>
-          <h1>{place[id].name}</h1>
-          {editTool ? edit() : null}
-          <p>{place[id].address}, {place[id].city}, {place[id].state}</p>
-          <p>{place[id].description}</p>
-          <span>${place[id].price}/night</span>
+          <div id='detail-content'>
+            <h1>{place[id].name}</h1>
+            {editTool ? edit() : null}
+            <p>{place[id].address}, {place[id].city}, {place[id].state}</p>
+            <p>{place[id].description}</p>
+            <span>${place[id].price}/night</span>
+          </div>
+          <div id='place-pictures'>
+          </div>
+          <div id='booking-placement'>
+            <BookingForm place={place} id={id} />
+          </div>
         </div>
       </div>
     </>

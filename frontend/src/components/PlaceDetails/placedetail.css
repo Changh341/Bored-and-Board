@@ -41,3 +41,25 @@
 .x-btn:hover {
   cursor: pointer;
 }
+
+#booking-placement {
+  border: 1px solid red;
+  width: 325px;
+  height: auto;
+  position: absolute;
+  right: 24%;
+  top: 25%;
+}
+
+#detail-content {
+  border: 1px solid red;
+  width: 650px;
+  height: 375px
+}
+
+#place-pictures {
+  border: 1px solid red;
+  width: 100%;
+  margin-top: 2%;
+  height: 45%;
+}

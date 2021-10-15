@@ -11,6 +11,7 @@ import CreatePlaceForm from "./components/PlaceFormPage";
 import EditPlaceForm from "./components/PlaceEditForm";
 import BookingUserView from "./components/BookingUserView";
 import { NavLink } from "react-router-dom";
+import BookingConfirmation from "./components/BookingForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -59,6 +60,9 @@ function App() {
           </Route>
           <Route path='/mybookings'>
             <BookingUserView />
+          </Route>
+          <Route path='/confirm-booking'>
+            <BookingConfirmation />
           </Route>
         </Switch>
       )}
