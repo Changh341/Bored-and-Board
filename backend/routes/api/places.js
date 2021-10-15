@@ -70,7 +70,6 @@ router.put('/edit/:id', asyncHandler(async (req, res) => {
     country,
     description
   }, { where: { id } })
-  console.log(req.body)
   return res.json(req.body);
 
 

@@ -24,21 +24,21 @@ const BookingUserView = () => {
   }, [dispatch]);
 
 
-
   return (
     <>
       <div id='booking-user-browser'>
-        <div id='booking-content'>
-
+        <h3>Upcoming stayings</h3>
+        <div id='booking-up-coming'>
           {booking.map((booking) => {
             return (
-              <>
-                <div key={booking.id} className='booking-listing' key={booking.id}>
-                  <span key={booking.id} className='clickable-booking'>Your stay at '{booking.Place.name}'  from {booking.startDate} to {booking.endDate}</span>
-                  <button key={booking.id} className='cancel-booking-btn'>Cancel</button>
-                </div>
 
-              </>
+              <div key={`listing${booking.id}`} className='booking-listing' >
+                <span key={`clickable${booking.id}`} className='clickable-booking'>Your stay at '{booking.Place.name}'  from {booking.startDate} to {booking.endDate}</span>
+                <div key={`btn${booking.id}`} className='bookings-btn'>
+                  <button key={`detail-btn${booking.id}`} >Details</button>
+                  <button key={`cancel-btn${booking.id}`} >Cancel</button>
+                </div>
+              </div>
             )
           })}
         </div>

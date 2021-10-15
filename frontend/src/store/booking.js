@@ -2,10 +2,16 @@ import { csrfFetch } from './csrf';
 const initialState = { bookingList: [] }
 
 const POPULATE = 'booking/POPULATE'
+const CANCEL = 'booking/CANCEL'
 
 const load = (bookings) => ({
   type: POPULATE,
   bookings
+})
+
+const deleteBooking = (booking) => ({
+  type: CANCEL,
+  booking
 })
 
 export const getBooking = (userId) => async (dispatch) => {
@@ -31,6 +37,14 @@ export const postBooking = (data) => async (dispatch) => {
   }
 }
 
+export const cancelBooking = (bookingId) => async (dispatch) => {
+  // const response = await csrfFetch(`/api/bookings/${bookingId}`, {
+  //   method: 'DELETE',
+  // })
+  // if (response.ok) {
+  dispatch(deleteBooking(bookingId))
+  // }
+}
 
 const sortList = (bookings) => {
   return bookings
@@ -43,7 +57,6 @@ const sortList = (bookings) => {
 const bookingReducer = (state = initialState, action) => {
   switch (action.type) {
     case POPULATE: {
-      console.log(action.bookings)
       const allBooking = {};
       action.bookings.forEach((booking) => {
         allBooking[booking.id] = booking;
@@ -53,6 +66,9 @@ const bookingReducer = (state = initialState, action) => {
         ...state,
         bookingList: sortList(action.bookings)
       };
+    }
+    case CANCEL: {
+      console.log(state)
     }
     default: return state;
   }
