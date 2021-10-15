@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { getBooking } from "../../store/booking";
+import './BookingView.css'
 
 
 const BookingUserView = () => {
@@ -26,14 +27,15 @@ const BookingUserView = () => {
 
   return (
     <>
-      <div>
-        <ul>
+      <div id='booking-user-browser'>
+        <div id='booking-content'>
+
           {booking.map((booking) => {
             return (
-              <li>Your stay at '{booking.Place.name}'  from {booking.startDate} to {booking.endDate}</li>
+              <div key={booking.id}>Your stay at '{booking.Place.name}'  from {booking.startDate} to {booking.endDate}</div>
             )
           })}
-        </ul>
+        </div>
       </div>
     </>
   )

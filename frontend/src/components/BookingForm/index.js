@@ -1,9 +1,13 @@
+import { useDispatch } from 'react-redux'
+import { postBooking } from '../../store/booking'
+import { useHistory } from "react-router-dom"
 import './BookingForm.css'
 
 
 const BookingConfirmation = ({ place, id, startDate, endDate, duration, cost, show, userId }) => {
   const totalCost = 10 + cost + Math.round(cost * .12)
-
+  const dispatch = useDispatch()
+  const history = useHistory()
   const handleSubmit = async (e) => {
 
     const payload = {
@@ -14,6 +18,10 @@ const BookingConfirmation = ({ place, id, startDate, endDate, duration, cost, sh
     };
 
     console.log(payload)
+    await dispatch(postBooking(payload))
+
+    history.push('/mybookings')
+
 
   }
   const validInfo = (cost) => {

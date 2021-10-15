@@ -13,9 +13,19 @@ router.get('/user/:id', asyncHandler(async (req, res) => {
     include: Place
   })
   if (bookings) {
-    console.log(bookings)
     res.json(bookings)
   }
+}))
+
+router.post('/', asyncHandler(async (req, res) => {
+  const { spotId, userId, startDate, endDate } = req.body
+  const newBooking = await Booking.create({
+    spotId,
+    userId,
+    startDate,
+    endDate
+  })
+  return res.json(newBooking)
 }))
 
 

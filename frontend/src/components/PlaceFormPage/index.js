@@ -40,10 +40,9 @@ const CreatePlaceForm = () => {
       description,
     };
 
-    const place = await dispatch(createPlace(payload));
-    if (place) {
-      history.push('/myplaces');
-    }
+    await dispatch(createPlace(payload));
+    history.push('/myplaces');
+
   }
 
   if (!hostId) {

@@ -12,8 +12,22 @@ export const getBooking = (userId) => async (dispatch) => {
   const response = await fetch(`/api/bookings/user/${userId}`);
   if (response.ok) {
     const bookings = await response.json()
-    console.log(bookings)
     dispatch(load(bookings))
+  }
+}
+
+export const postBooking = (data) => async (dispatch) => {
+  const response = await csrfFetch('/api/bookings', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  });
+  if (response.ok) {
+    const bookings = await response.json()
+    const { userId } = bookings
+    dispatch(getBooking(userId))
   }
 }
 
@@ -21,9 +35,9 @@ export const getBooking = (userId) => async (dispatch) => {
 const sortList = (bookings) => {
   return bookings
     .sort((bookingsA, bookingsB) => {
-      return bookingsA.spotId - bookingsB.spotId;
+      return bookingsA.id - bookingsB.id;
     })
-    .map((booking) => booking.spotId);
+    .map((booking) => booking.id);
 };
 
 const bookingReducer = (state = initialState, action) => {
@@ -32,7 +46,7 @@ const bookingReducer = (state = initialState, action) => {
       console.log(action.bookings)
       const allBooking = {};
       action.bookings.forEach((booking) => {
-        allBooking[booking.spotId] = booking;
+        allBooking[booking.id] = booking;
       });
       return {
         ...allBooking,
