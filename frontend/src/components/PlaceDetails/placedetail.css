@@ -43,22 +43,31 @@
 }
 
 #booking-placement {
-  border: 1px solid red;
   width: 325px;
   height: auto;
   position: absolute;
   right: 24%;
   top: 25%;
+  border: 1px solid black;
+}
+
+#booking-placement > * {
+  padding: 10px;
+  margin: 4px;
 }
 
 #detail-content {
-  border: 1px solid red;
   width: 650px;
-  height: 375px
+  height: 375px;
+  border: 1px solid black;
+  margin: 5px;
+}
+
+#detail-content > * {
+  margin-left: 10px;
 }
 
 #place-pictures {
-  border: 1px solid red;
   width: 100%;
   margin-top: 2%;
   height: 45%;

@@ -32,7 +32,13 @@ const BookingUserView = () => {
 
           {booking.map((booking) => {
             return (
-              <div key={booking.id}>Your stay at '{booking.Place.name}'  from {booking.startDate} to {booking.endDate}</div>
+              <>
+                <div key={booking.id} className='booking-listing' key={booking.id}>
+                  <span key={booking.id} className='clickable-booking'>Your stay at '{booking.Place.name}'  from {booking.startDate} to {booking.endDate}</span>
+                  <button key={booking.id} className='cancel-booking-btn'>Cancel</button>
+                </div>
+
+              </>
             )
           })}
         </div>

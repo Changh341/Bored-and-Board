@@ -1,12 +1,25 @@
 #booking-user-browser {
-  border: 1px solid red;
-  width: 100%;
+  border: 1px solid black;
+  width: 45%;
   height: auto;
+  box-shadow: 0 1px 2px black;
+  border-radius: 12px;
 
 }
 
-#booking-content {
+
+
+.booking-listing{
+  border-bottom: 1px solid grey;
+  border-radius: 4px;
+  padding: 10px;
   display: flex;
-  flex-direction: column;
-  align-items: space-between;
+}
+
+.clickable-booking {
+  width: 60%;
+}
+
+.cancel-booking-btn{
+  margin-left: 30%;
 }
