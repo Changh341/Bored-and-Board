@@ -9,7 +9,7 @@ const router = express.Router();
 router.get('/', asyncHandler(async (req, res) => {
 
   const places = await Place.findAll({
-    limit: 10,
+    limit: 100,
   })
   if (places) {
     res.json(places)

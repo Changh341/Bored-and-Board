@@ -2,11 +2,16 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
+const faker = require('faker');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User } = require('../../db/models');
+const { User, Place } = require('../../db/models');
 
 const router = express.Router();
+
+const randomUserName = faker.internet.userName()
+const randomEmail = faker.internet.email()
+const randomPassword = faker.internet.password()
 
 const validateSignup = [
   check('email')
@@ -33,6 +38,21 @@ router.post(
   validateSignup,
   asyncHandler(async (req, res) => {
     const { email, password, username } = req.body;
+    const user = await User.signup({ email, username, password });
+
+    await setTokenCookie(res, user);
+
+    return res.json({
+      user,
+    });
+  }),
+);
+
+
+router.post(
+  '/demo',
+  validateSignup,
+  asyncHandler(async (req, res) => {
     const user = await User.signup({ email, username, password });
 
     await setTokenCookie(res, user);
