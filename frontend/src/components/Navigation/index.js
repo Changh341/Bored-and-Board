@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import LoginFormModal from '../LoginFormPage';
+import DemoUser from '../DemoUser';
 
 
 function Navigation({ isLoaded }) {
@@ -21,6 +22,7 @@ function Navigation({ isLoaded }) {
       <div class='rightNavi'>
         <LoginFormModal />
         <NavLink className='splash-links' to="/signup">Sign Up</NavLink>
+        <DemoUser />
       </div>
     );
   }

@@ -38,12 +38,12 @@ export const postBooking = (data) => async (dispatch) => {
 }
 
 export const cancelBooking = (bookingId) => async (dispatch) => {
-  // const response = await csrfFetch(`/api/bookings/${bookingId}`, {
-  //   method: 'DELETE',
-  // })
-  // if (response.ok) {
-  dispatch(deleteBooking(bookingId))
-  // }
+  const response = await csrfFetch(`/api/bookings/${bookingId}`, {
+    method: 'DELETE',
+  })
+  if (response.ok) {
+    dispatch(deleteBooking(bookingId))
+  }
 }
 
 const sortList = (bookings) => {
@@ -68,7 +68,10 @@ const bookingReducer = (state = initialState, action) => {
       };
     }
     case CANCEL: {
-      console.log(state)
+      delete state[action.booking]
+      return {
+        ...state,
+      }
     }
     default: return state;
   }

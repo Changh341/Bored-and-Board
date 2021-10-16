@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { getBooking } from "../../store/booking";
+import { cancelBooking, getBooking } from "../../store/booking";
 import './BookingView.css'
 
 
@@ -23,6 +23,11 @@ const BookingUserView = () => {
     dispatch(getBooking(userId));
   }, [dispatch]);
 
+  const handleSubmit = (bookingId) => async (event) => {
+    event.preventDefault();
+    dispatch(cancelBooking(bookingId))
+  }
+
 
   return (
     <>
@@ -30,16 +35,17 @@ const BookingUserView = () => {
         <h3>Upcoming stayings</h3>
         <div id='booking-up-coming'>
           {booking.map((booking) => {
-            return (
-
-              <div key={`listing${booking.id}`} className='booking-listing' >
-                <span key={`clickable${booking.id}`} className='clickable-booking'>Your stay at '{booking.Place.name}'  from {booking.startDate} to {booking.endDate}</span>
-                <div key={`btn${booking.id}`} className='bookings-btn'>
-                  <button key={`detail-btn${booking.id}`} >Details</button>
-                  <button key={`cancel-btn${booking.id}`} >Cancel</button>
+            if (booking) {
+              return (
+                <div key={`listing${booking.id}`} className='booking-listing' >
+                  <span key={`clickable${booking.id}`} className='clickable-booking'>Your stay at '{booking.Place.name}'  from {booking.startDate} to {booking.endDate}</span>
+                  <div key={`btn${booking.id}`} className='bookings-btn'>
+                    <button key={`detail-btn${booking.id}`} >Details</button>
+                    <button key={`cancel-btn${booking.id}`} onClick={handleSubmit(booking.id)}>Cancel</button>
+                  </div>
                 </div>
-              </div>
-            )
+              )
+            }
           })}
         </div>
       </div>

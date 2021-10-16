@@ -4,6 +4,7 @@ import { getPlace } from '../../store/place';
 import { NavLink, Route } from 'react-router-dom';
 import PlaceDetail from '../PlaceDetails';
 import './browser.css'
+import Pagination from './Pagination';
 
 const PlaceBrowser = () => {
   const dispatch = useDispatch()
@@ -11,22 +12,31 @@ const PlaceBrowser = () => {
     return state.place.list.map(placeId => state.place[placeId]);
   });
 
+
   useEffect(() => {
     dispatch(getPlace());
   }, [dispatch]);
 
+
   const [displayDetail, setDisplayDetail] = useState(false)
   const [details, setDetails] = useState('')
+  const [currentPage, setCurrentPage] = useState(1);
+  const paginate = pageNumber => setCurrentPage(pageNumber);
+  const amtOfPage = Math.ceil(place.length / 10)
 
+  const indexOfLastPost = currentPage * 10;
+  const indexOfFirstPost = indexOfLastPost - 10;
+  const content = place.slice(indexOfFirstPost, indexOfLastPost)
   if (!place) {
     return null
   }
-
+  const photoPlaceId = [129];
   return (
     <>
       <div className='browser-window'>
+        {console.log(place.length)}
         {
-          place.map((place) => {
+          content.map((place) => {
             if (place) {
               return (
                 <div key={place.id} onClick={(event) => {
@@ -42,8 +52,9 @@ const PlaceBrowser = () => {
             }
           })
         }
-        {displayDetail && <PlaceDetail displayDetail={setDisplayDetail} id={details} />}
+        <Pagination totalPosts={place.length - 1} paginate={paginate} />
       </div>
+      {displayDetail && <PlaceDetail displayDetail={setDisplayDetail} id={details} />}
     </>
   )
 }
