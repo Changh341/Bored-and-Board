@@ -21,9 +21,17 @@ const PlaceDetail = ({ displayDetail, id }) => {
     return <div>Did not load</div>
   }
   const edit = () => {
-    return <button id='edit-btn'>Edit</button>
+    return <span style={{ color: "green" }}>This is your listing</span>
 
   }
+  const houseImg = (url) => {
+    if (url) {
+      return <img src={url} className='detailed-house-image' />
+    } else {
+      return <img src='https://i.imgur.com/A70WZMn.jpg' className='detailed-house-image' />
+    }
+  }
+
 
   return (
     <>
@@ -40,6 +48,7 @@ const PlaceDetail = ({ displayDetail, id }) => {
             <span>${place[id].price}/night</span>
           </div>
           <div id='place-pictures'>
+            {place[id].Image.url ? houseImg(place[id].Image.url) : houseImg()}
           </div>
           <div id='booking-placement'>
             <BookingForm place={place} id={id} />

@@ -9,6 +9,7 @@
 
 #profile-btn {
   position: absolute;
+  top:10px;
   border: 1px solid transparent; 
   background: transparent;
 }
@@ -21,9 +22,12 @@
 }
 
 .profile-dropdown {
+  position: absolute;
+  top:10px;
   flex-direction: column;
   padding: 0;
   margin: 0;
+  background-color: white;
 }
 .profile-dropdown > li {
   margin-top: 5px;

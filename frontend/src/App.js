@@ -28,9 +28,10 @@ function App() {
           <Route exact path="/">
             <div id='splash-div'>
               <span>Ready to find a boring place?</span>
-              <NavLink id='explore-btn' to='/places'>Explore</NavLink>
             </div>
+            <NavLink id='explore-btn' to='/places'>Explore</NavLink>
             <div id='discover-div'>
+              <b>Popular </b>
               <div className='discover-city' id='plano'>Plano, TX</div>
               <div className='discover-city' id='lubbock'>Lubbock, TX</div>
               <div className='discover-city' id='cheasapeak'>Cheasapeak, VA</div>

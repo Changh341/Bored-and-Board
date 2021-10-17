@@ -1,19 +1,31 @@
 #navigationBar {
+  width: 100%;
   list-style-type: none;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  align-items: center;
   box-sizing: border-box;
   height: 50px;
   margin-bottom: 0;
 }
 
 .rightNavi {
+  position: absolute;
   display: flex;
   flex-direction: row;  
   margin-right: 40px;
-  width: 200px;
+  width: 270px;
+  align-items: center;
+  height: 50px;
+  top:0;
+  right:0;
 }
+
+.rightNavi > * {
+  margin-left: 7.5px;
+}
+
 
 #leftNav {
   position: absolute;

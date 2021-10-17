@@ -7,18 +7,21 @@
     align-items: center;
     flex-direction: column;
     left: 0;
-    top: 0;
+    top: 7%;
     overflow: hidden;
     background-size: cover;
     background-position: center;
     background-image: url('https://i.imgur.com/Zhvn9bi.jpg');
     width: 100%;
-    height: 60%;
+    height: 55%;
     margin: 0;
     padding: 0;
+    z-index: -1;
 }
 
+
 #explore-btn {
+   position: absolute;
     width: 150px;
     margin-top: 20px;
     padding: 10px;
@@ -29,7 +32,8 @@
     text-align: center;
     color: black;
     text-decoration: none;
-    z-index: 1;
+    right: 44.5%;
+    top: 35%;
 }
 
 #explore-btn:hover {
@@ -49,7 +53,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    z-index: 1;
 }
 
 .discover-city {
@@ -63,7 +66,6 @@
     padding: 5px;
     color: darkblue;
     font-weight: 900;
-    z-index: 1;
 }
 
 .discover-city:hover {

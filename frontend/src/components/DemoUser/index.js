@@ -1,6 +1,6 @@
+
 const { useDispatch } = require("react-redux");
 const { createDemo } = require("../../store/session");
-
 
 const DemoUser = () => {
   const dispatch = useDispatch();
@@ -9,7 +9,7 @@ const DemoUser = () => {
   }
   return (
     <div id='demo-container'>
-      <button id='demo-btn' onClick={submitHandler}>Demo User</button>
+      <button className='splash-links' onClick={submitHandler}>Demo User</button>
     </div>
   )
 }

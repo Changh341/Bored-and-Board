@@ -58,7 +58,7 @@
 
 #detail-content {
   width: 650px;
-  height: 375px;
+  height: 275px;
   border: 1px solid black;
   margin: 5px;
 }
@@ -68,8 +68,18 @@
 }
 
 #place-pictures {
-  border: 1px solid red;
+  display: flex;
   width: 100%;
   margin-top: 2%;
-  height: 145px;
+  height: 250px;
+  justify-content: center;
+}
+
+.detailed-house-image {
+  border: 1px solid black;
+  width: 500px;
+  height: 245px;
+  object-fit:contain;
+  margin-left: 15px;
+  bottom: 150px;
 }

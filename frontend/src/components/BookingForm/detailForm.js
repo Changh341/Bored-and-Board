@@ -59,8 +59,7 @@ const BookingForm = ({ place, id }) => {
 
 
 
-
-  if (userId === null) {
+  if (!userId) {
     return (<div>Please login to book location</div>)
   } else {
 
