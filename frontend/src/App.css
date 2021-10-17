@@ -16,7 +16,6 @@
     height: 60%;
     margin: 0;
     padding: 0;
-    z-index: -1;
 }
 
 #explore-btn {
@@ -50,6 +49,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    z-index: 1;
 }
 
 .discover-city {
@@ -63,6 +63,7 @@
     padding: 5px;
     color: darkblue;
     font-weight: 900;
+    z-index: 1;
 }
 
 .discover-city:hover {
@@ -82,6 +83,7 @@
     height: 4.5%;
     display: flex;
     align-items: center;
+    z-index: 1;
 }
 
 #footer>* {
