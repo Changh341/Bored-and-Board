@@ -1,7 +1,7 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 
-const { Place } = require('../../db/models');
+const { Place, Image } = require('../../db/models');
 const { requireAuth, restoreUser } = require('../../utils/auth');
 
 const router = express.Router();
@@ -10,7 +10,9 @@ router.get('/', asyncHandler(async (req, res) => {
 
   const places = await Place.findAll({
     limit: 100,
+    include: Image
   })
+
   if (places) {
     res.json(places)
   }
@@ -41,7 +43,7 @@ router.get('/:id', asyncHandler(async (req, res) => {
 }))
 
 router.post('/', asyncHandler(async (req, res) => {
-  const { name, hostId, price, address, city, state, country, description } = req.body
+  const { name, hostId, price, address, city, state, country, description, url } = req.body
   const newPlace = await Place.create({
     name,
     hostId,
@@ -52,13 +54,17 @@ router.post('/', asyncHandler(async (req, res) => {
     country,
     description
   })
+  const newImage = await Image.create({
+    spotId: newPlace.id,
+    url
+  })
   return res.json(newPlace);
 
 
 }))
 
 router.put('/edit/:id', asyncHandler(async (req, res) => {
-  const { name, hostId, price, address, city, state, country, description } = req.body
+  const { name, hostId, price, address, city, state, country, description, url } = req.body
   const { id } = req.params
   const updated = await Place.update({
     name,
@@ -70,6 +76,9 @@ router.put('/edit/:id', asyncHandler(async (req, res) => {
     country,
     description
   }, { where: { id } })
+  const updatedImage = await Image.update({
+    url
+  }, { where: { spotId: id } })
   return res.json(req.body);
 
 

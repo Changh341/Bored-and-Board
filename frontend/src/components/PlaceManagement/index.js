@@ -42,6 +42,12 @@ const PlaceManager = () => {
     return null
   }
 
+  const shortenDesc = (desc) => {
+    if (desc.length > 25) {
+      const shortString = desc.slice(0, 25);
+      return shortString + '...'
+    }
+  }
   return (
     <>
       <div id='manager-toolkit'>
@@ -59,7 +65,7 @@ const PlaceManager = () => {
                     {'$' + place.price + '/night'}
                   </div>
                   <div>
-                    {place.description}
+                    {shortenDesc(place.description)}
                   </div>
                   <div>
                     <NavLink className='edit-btn' to={`/myplaces/edit/${place.id}`}>Edit</NavLink>

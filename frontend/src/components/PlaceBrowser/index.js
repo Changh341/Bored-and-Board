@@ -30,11 +30,17 @@ const PlaceBrowser = () => {
   if (!place) {
     return null
   }
-  const photoPlaceId = [129];
+
+  const houseImg = (url) => {
+    if (url) {
+      return <img src={url} className='housePic' />
+    } else {
+      return <img src='https://i.imgur.com/A70WZMn.jpg' className='housePic' />
+    }
+  }
   return (
     <>
       <div className='browser-window'>
-        {console.log(place.length)}
         {
           content.map((place) => {
             if (place) {
@@ -45,7 +51,11 @@ const PlaceBrowser = () => {
                 }} >
                   <div className='place-card'>
                     <div> {place.name}</div>
+                    <div>{place.city}, {place.state}</div>
                     <div>{'$' + place.price}/Night</div>
+                    <div className='house-pic-container'>
+                      {place.Image ? houseImg(place.Image.url) : houseImg()}
+                    </div>
                   </div>
                 </div>
               )

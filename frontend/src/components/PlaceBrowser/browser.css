@@ -3,7 +3,7 @@
   justify-content: start;
   flex-direction: column;
   width: 250px;
-  height: 200px;
+  height: 275px;
   border: 1px solid black;
   margin-top: 10px;
   margin-left: 10px;
@@ -39,7 +39,7 @@
 
 .pagination {
   position: absolute;
-  bottom: 1%;
+  bottom: -50;
   display: flex;
   left: 555px;
   align-items: center;
@@ -53,4 +53,14 @@
 
 .page-numbers:hover{
   cursor: pointer;
+}
+
+
+.housePic{
+  border: 1px solid black;
+width: 200px;
+height: 125px;
+object-fit: cover;
+margin-left: 15px;
+bottom: 150px;
 }
