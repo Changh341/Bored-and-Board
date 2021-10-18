@@ -40,9 +40,9 @@
 
 .pagination {
   position: absolute;
-  bottom: -50;
+  bottom: 0;
   display: flex;
-  left: 555px;
+  right: 40%;
   align-items: center;
 }
 

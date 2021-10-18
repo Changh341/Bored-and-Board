@@ -22,10 +22,9 @@ const PlaceBrowser = () => {
   const [details, setDetails] = useState('')
   const [currentPage, setCurrentPage] = useState(1);
   const paginate = pageNumber => setCurrentPage(pageNumber);
-  const amtOfPage = Math.ceil(place.length / 10)
 
-  const indexOfLastPost = currentPage * 10;
-  const indexOfFirstPost = indexOfLastPost - 10;
+  const indexOfLastPost = currentPage * 12;
+  const indexOfFirstPost = indexOfLastPost - 12;
   const content = place.slice(indexOfFirstPost, indexOfLastPost)
   if (!place) {
     return null

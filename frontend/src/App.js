@@ -31,7 +31,7 @@ function App() {
             </div>
             <NavLink id='explore-btn' to='/places'>Explore</NavLink>
             <div id='discover-div'>
-              <b>Popular </b>
+              <b id='popular-city'>Popular Cities</b>
               <div className='discover-city' id='plano'>Plano, TX</div>
               <div className='discover-city' id='lubbock'>Lubbock, TX</div>
               <div className='discover-city' id='cheasapeak'>Cheasapeak, VA</div>

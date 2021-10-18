@@ -122,3 +122,9 @@
     background-image: url('https://s3.us-west-1.amazonaws.com/stockton-2019/images/_1200x630_crop_center-center_82_none/downtown-stockton.jpg');
     background-size: cover;
 }
+
+#popular-city {
+  position: absolute;
+  top:7.5%;
+  left:2%;
+}
