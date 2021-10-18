@@ -24,7 +24,7 @@ Instructions for localhost.
 1. Pull from this github.
 2. run npm install on /frontend and /backend
 3. ensure postgresql is running and setup the configs
-4. run in terminal db:create --> db:migrate --> db:seed:all
+4. run in terminal db:create --> db:migrate --> db:seed:all (this process may fail. please drop db in the event of failure and redo.) 
 5. have a terminal for both frontend and backend and run npm start
 6. A browser should pop up with the corresponding localhost port
 
