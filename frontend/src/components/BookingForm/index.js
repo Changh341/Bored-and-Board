@@ -17,7 +17,6 @@ const BookingConfirmation = ({ place, id, startDate, endDate, duration, cost, sh
       endDate
     };
 
-    console.log(payload)
     await dispatch(postBooking(payload))
 
     history.push('/mybookings')

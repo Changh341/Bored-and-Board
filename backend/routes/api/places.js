@@ -22,7 +22,6 @@ router.get('/management/:id', requireAuth, asyncHandler(async (req, res) => {
   const { id } = req.params
 
   const places = await Place.findAll({
-    limit: 10,
     where: { hostId: id },
   })
   if (places) {

@@ -44,7 +44,7 @@ const PlaceManager = () => {
 
   const shortenDesc = (desc) => {
     if (desc.length > 25) {
-      const shortString = desc.slice(0, 25);
+      const shortString = desc.slice(0, 50);
       return shortString + '...'
     }
   }

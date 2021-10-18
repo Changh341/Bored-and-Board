@@ -40,7 +40,6 @@ const BookingUserView = () => {
                 <div key={`listing${booking.id}`} className='booking-listing' >
                   <span key={`clickable${booking.id}`} className='clickable-booking'>Your stay at '{booking.Place.name}'  from {booking.startDate} to {booking.endDate}</span>
                   <div key={`btn${booking.id}`} className='bookings-btn'>
-                    <button key={`detail-btn${booking.id}`} >Details</button>
                     <button key={`cancel-btn${booking.id}`} onClick={handleSubmit(booking.id)}>Cancel</button>
                   </div>
                 </div>

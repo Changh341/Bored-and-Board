@@ -14,7 +14,7 @@ const PlaceDetail = ({ displayDetail, id }) => {
   })
 
   const editTool = (userId == place[id].hostId)
-  console.log(editTool)
+
 
 
   if (!place) {

@@ -49,7 +49,6 @@ function ProfileButton({ user }) {
         <div id='profile-div'>
           <ul className="profile-dropdown">
             <span id='dropdown-greetuser'>Hello {user.username}!</span>
-            <li><button className='session-user-btn'>My Profile</button></li>
             <li><button className='session-user-btn' onClick={userBooking}>My Bookings</button></li>
             <li><button className='session-user-btn' onClick={userHosting}>My Hostings</button></li>
             <li>
