@@ -2,7 +2,9 @@
 
 
 Langauge: Javascript
+
 Frameworks: ReactJS, Redux, Express, Sequelize
+
 API: FakerNPM
 
 Future features: Google API, Reviews, a completed hosting management, and Profile page.
