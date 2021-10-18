@@ -26,4 +26,4 @@ Instructions for localhost.
 5. have a terminal for both frontend and backend and run npm start
 6. A browser should pop up with the corresponding localhost port
 
-Future features: Google API, Reviews, a completed hosting management, and Profile page.
+Future features: Google API, Reviews, a completed hosting management, search function, and profile page.
