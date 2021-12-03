@@ -44,11 +44,12 @@ const PlaceBrowser = () => {
           content.map((place) => {
             if (place) {
               return (
-                <div key={place.id} onClick={(event) => {
-                  setDetails(place.id)
-                  setDisplayDetail(true)
-                }} >
-                  <div className='place-card'>
+                <div key={place.id}  >
+                  <div className='place-card' onClick={(event) => {
+                    event.stopPropagation()
+                    setDetails(place.id)
+                    setDisplayDetail(true)
+                  }}>
                     <div> {place.name}</div>
                     <div>{place.city}, {place.state}</div>
                     <div>{'$' + place.price}/Night</div>
