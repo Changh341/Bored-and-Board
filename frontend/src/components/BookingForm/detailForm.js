@@ -8,9 +8,9 @@ import BookingConfirmation from "."
 const BookingForm = ({ place, id }) => {
   const minDate = (x) => {
     let today = new Date();
-    const dd = today.getDate() + x
-    const mm = today.getMonth() + 1;
-    const yyyy = today.getFullYear();
+    let dd = today.getDate() + x
+    let mm = today.getMonth() + 1;
+    let yyyy = today.getFullYear();
 
     if (dd < 10) {
       dd = '0' + dd;
