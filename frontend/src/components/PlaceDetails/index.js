@@ -48,7 +48,7 @@ const PlaceDetail = ({ displayDetail, id }) => {
             <span>${place[id].price}/night</span>
           </div>
           <div id='place-pictures'>
-            {place[id].Image.url ? houseImg(place[id].Image.url) : houseImg()}
+            {place[id].Image ? houseImg(place[id].Image.url) : houseImg()}
           </div>
           <div id='booking-placement'>
             <BookingForm place={place} id={id} />
