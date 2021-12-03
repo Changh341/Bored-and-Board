@@ -26,4 +26,5 @@ html *{
 body {
   width: 99vw;
   min-height: 99%;
+  overflow-x: hidden;
 }
