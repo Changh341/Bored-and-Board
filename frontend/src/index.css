@@ -22,3 +22,8 @@ html *{
   text-decoration: underline;
   cursor: pointer;
 }
+
+body {
+  width: 99vw;
+  min-height: 99%;
+}

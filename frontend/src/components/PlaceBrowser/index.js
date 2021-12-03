@@ -44,7 +44,7 @@ const PlaceBrowser = () => {
           content.map((place) => {
             if (place) {
               return (
-                <div key={place.id}  >
+                <div key={place.id} className='placecard-container'>
                   <div className='place-card' onClick={(event) => {
                     event.stopPropagation()
                     setDetails(place.id)

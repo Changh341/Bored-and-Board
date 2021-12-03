@@ -34,8 +34,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 90%;
 }
 
 .pagination {
@@ -54,6 +54,7 @@
 
 .page-numbers:hover{
   cursor: pointer;
+  text-decoration: underline;
 }
 
 
@@ -64,4 +65,8 @@ height: 125px;
 object-fit: cover;
 margin-left: 15px;
 bottom: 150px;
+}
+
+.placecard-container{
+  height: 300px;
 }
