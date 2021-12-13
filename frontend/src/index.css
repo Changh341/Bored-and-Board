@@ -3,7 +3,8 @@
 
 
 html *{
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Cambria', Georgia, serif;
+  font-size: 18px;
 }
 
 .splash-links {
@@ -29,4 +30,15 @@ body {
   overflow-x: hidden;
 }
 
+button {
+  margin: 2px;
+  background-color: lightblue;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+button:hover{
+  background-color: lightcyan;
+  text-decoration: underline;
+}
 

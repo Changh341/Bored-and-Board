@@ -7,11 +7,20 @@
 
 
 .edit-btn {
-  border: 1px solid gray;
+  margin: 2px;
   background-color: lightblue;
+  border: 1px solid black;
+  cursor: pointer;
   text-decoration: none;
   color: black;
+  padding: 1.5px;
 }
+
+.edit-btn:hover{
+  background-color: lightcyan;
+  text-decoration: underline;
+}
+
 
 .manage-card {
   display: flex;

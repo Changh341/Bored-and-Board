@@ -27,7 +27,7 @@ function App() {
         <Switch>
           <Route exact path="/">
             <div id='splash-div'>
-              <span>Ready to find a boring place?</span>
+              <span id='hp-quote'>Ready to find a boring place?</span>
             </div>
             <NavLink id='explore-btn' to='/places'>Explore</NavLink>
             <div id='discover-div'>

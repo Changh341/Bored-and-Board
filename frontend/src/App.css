@@ -128,3 +128,8 @@
   top:7.5%;
   left:2%;
 }
+
+#hp-quote{
+  position: absolute;
+  left: 45%;
+}
