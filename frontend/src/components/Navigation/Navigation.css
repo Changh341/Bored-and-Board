@@ -40,3 +40,20 @@
   height: 50px;
   object-fit: contain;
 }
+
+.nav-btn{
+  background-color: white;
+  border: 1px solid transparent;
+  font-weight: normal;
+  color: black;
+  text-decoration: none;
+  padding: 6px;
+}
+
+.nav-btn:hover{
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 16px;
+  text-decoration: underline;
+  background-color: white;
+}

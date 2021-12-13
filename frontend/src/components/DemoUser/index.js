@@ -9,7 +9,7 @@ const DemoUser = () => {
   }
   return (
     <div id='demo-container'>
-      <button className='splash-links' onClick={submitHandler}>Demo User</button>
+      <button className='nav-btn' onClick={submitHandler}>Demo User</button>
     </div>
   )
 }
