@@ -9,9 +9,6 @@ const { User, Place, Booking } = require('../../db/models');
 
 const router = express.Router();
 
-const randomUserName = faker.internet.userName()
-const randomEmail = faker.internet.email()
-const randomPassword = faker.internet.password()
 const todayPlusDays = (days) => {
   let today = new Date();
   const dd = today.getDate() + days
@@ -70,9 +67,9 @@ router.post(
   '/demo',
   asyncHandler(async (req, res) => {
     const user = await User.signup({
-      email: randomEmail,
-      username: randomUserName,
-      password: randomPassword
+      email: faker.internet.email(),
+      username: faker.internet.userName(),
+      password: faker.internet.password()
     });
 
     await setTokenCookie(res, user);

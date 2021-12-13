@@ -40,6 +40,7 @@ function App() {
               <div className='discover-city' id='stockton'>Stockton, CA</div>
             </div>
             <div id='footer'>
+              <span>Site created by Howard Chang:</span>
               <a target='_blank' href='https://github.com/Changh341'>My Github</a>
               <a target='_blank' href='https://www.linkedin.com/in/hao-chang-459128b1'>My LinkedIn</a>
             </div>
