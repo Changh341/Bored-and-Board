@@ -1,6 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-
+const { Op } = require("sequelize");
 const { Place, Image } = require('../../db/models');
 const { requireAuth, restoreUser } = require('../../utils/auth');
 
@@ -11,6 +11,19 @@ router.get('/', asyncHandler(async (req, res) => {
   const places = await Place.findAll({
     limit: 100,
     include: Image
+  })
+
+  if (places) {
+    res.json(places)
+  }
+}))
+
+router.get('/search/:state/:city', asyncHandler(async (req, res) => {
+  const { city, state } = req.params
+  const places = await Place.findAll({
+    limit: 100,
+    include: Image,
+    where: { [Op.and]: [{ city: city }, { state: state }], }
   })
 
   if (places) {

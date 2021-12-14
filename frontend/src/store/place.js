@@ -8,6 +8,7 @@ const ADD = 'place/ADD';
 const DELETE = 'place/DELETE';
 const EDIT = 'place/EDIT'
 
+
 const load = (list) => ({
   type: POPULATE,
   list
@@ -39,8 +40,17 @@ const editPlace = (place, id) => ({
   id
 })
 
+
 export const getPlace = () => async (dispatch) => {
   const response = await fetch(`/api/places`);
+  if (response.ok) {
+    const list = await response.json();
+    dispatch(load(list));
+  }
+}
+
+export const findPlace = (state, city) => async (dispatch) => {
+  const response = await fetch(`/api/places/search/${state}/${city}`);
   if (response.ok) {
     const list = await response.json();
     dispatch(load(list));

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch, useHistory } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
@@ -15,10 +15,15 @@ import BookingConfirmation from "./components/BookingForm";
 
 function App() {
   const dispatch = useDispatch();
+  const history = useHistory()
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
+
+  const popularCities = (state, city) => {
+    window.location.href = `searches/${state}/${city}`
+  }
 
   return (
     <>
@@ -32,12 +37,12 @@ function App() {
             <NavLink id='explore-btn' to='/places'>Explore</NavLink>
             <div id='discover-div'>
               <b id='popular-city'>Popular Cities</b>
-              <div className='discover-city' id='plano'>Plano, TX</div>
-              <div className='discover-city' id='lubbock'>Lubbock, TX</div>
-              <div className='discover-city' id='cheasapeak'>Cheasapeak, VA</div>
-              <div className='discover-city' id='fort-wayne'>Fort Wayne, IN</div>
-              <div className='discover-city' id='san-bernardino'>San Bernardino, CA</div>
-              <div className='discover-city' id='stockton'>Stockton, CA</div>
+              <div className='discover-city' onClick={(event) => popularCities('TX', 'Plano')} id='plano'>Plano, TX</div>
+              <div className='discover-city' onClick={(event) => popularCities('TX', 'Lubbock')} id='lubbock'>Lubbock, TX</div>
+              <div className='discover-city' onClick={(event) => popularCities('VA', 'Cheasapeak')} id='cheasapeak'>Cheasapeak, VA</div>
+              <div className='discover-city' onClick={(event) => popularCities('IN', 'Fort Wayne')} id='fort-wayne'>Fort Wayne, IN</div>
+              <div className='discover-city' onClick={(event) => popularCities('CA', 'San Bernardino')} id='san-bernardino'>San Bernardino, CA</div>
+              <div className='discover-city' onClick={(event) => popularCities('CA', 'Stockton')} id='stockton'>Stockton, CA</div>
             </div>
             <div id='footer'>
               <span>Site created by Howard Chang:</span>
@@ -51,7 +56,10 @@ function App() {
           <Route exact path='/places'>
             <PlaceBrowser />
           </Route>
-          <Route exact path='/myplaces'>
+          <Route path='/searches/:state/:city'>
+            <PlaceBrowser />
+          </Route>
+          <Route exact path='/myplaces/'>
             <PlaceManager />
           </Route>
           <Route path='/addlisting'>

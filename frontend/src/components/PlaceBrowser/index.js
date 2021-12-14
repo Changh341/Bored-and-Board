@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react';
-import { getPlace } from '../../store/place';
-import { NavLink, Route } from 'react-router-dom';
+import { findPlace, getPlace } from '../../store/place';
+import { NavLink, Route, useParams } from 'react-router-dom';
 import PlaceDetail from '../PlaceDetails';
 import './browser.css'
 import Pagination from './Pagination';
@@ -11,10 +11,13 @@ const PlaceBrowser = () => {
   const place = useSelector(state => {
     return state.place.list.map(placeId => state.place[placeId]);
   });
-
-
+  const { state, city } = useParams();
   useEffect(() => {
-    dispatch(getPlace());
+    if (state) {
+      dispatch(findPlace(state, city))
+    } else {
+      dispatch(getPlace());
+    }
   }, [dispatch]);
 
 
@@ -41,7 +44,7 @@ const PlaceBrowser = () => {
     <>
       <div className='browser-window'>
         {
-          content.map((place) => {
+          content ? content.map((place) => {
             if (place) {
               return (
                 <div key={place.id} className='placecard-container'>
@@ -60,7 +63,7 @@ const PlaceBrowser = () => {
                 </div>
               )
             }
-          })
+          }) : <span>No Results</span>
         }
         <Pagination totalPosts={place.length - 1} paginate={paginate} />
       </div>

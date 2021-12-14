@@ -74,6 +74,7 @@
     height: 63%;
     border: none;
     box-shadow: 0 0 transparent;
+    cursor: pointer;
 }
 
 #footer {
@@ -128,6 +129,7 @@
   top:7.5%;
   left:2%;
 }
+
 
 #hp-quote{
   position: absolute;
