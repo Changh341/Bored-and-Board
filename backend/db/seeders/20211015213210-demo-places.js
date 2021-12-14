@@ -114,7 +114,7 @@ module.exports = {
     function price() {
       return Math.floor(Math.random() * 501) + 50
     }
-    let city = ['Stockton', 'San Bernadino', 'Plano', 'Lubbock', 'Cheasapeak', 'Fort Wayne']
+    let city = ['Stockton', 'San Bernardino', 'Plano', 'Lubbock', 'Cheasapeak', 'Fort Wayne']
     let state = ['CA', 'CA', 'TX', 'TX', 'VA', 'IN']
     let count = 0
     let secondCount = 0
