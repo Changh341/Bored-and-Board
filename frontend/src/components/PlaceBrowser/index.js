@@ -30,7 +30,7 @@ const PlaceBrowser = () => {
   const indexOfFirstPost = indexOfLastPost - 12;
   const content = place.slice(indexOfFirstPost, indexOfLastPost)
   if (!place) {
-    return null
+    return <span>No Results</span>
   }
 
   const houseImg = (url) => {
@@ -44,7 +44,7 @@ const PlaceBrowser = () => {
     <>
       <div className='browser-window'>
         {
-          content ? content.map((place) => {
+          content.map((place) => {
             if (place) {
               return (
                 <div key={place.id} className='placecard-container'>
@@ -63,7 +63,7 @@ const PlaceBrowser = () => {
                 </div>
               )
             }
-          }) : <span>No Results</span>
+          })
         }
         <Pagination totalPosts={place.length - 1} paginate={paginate} />
       </div>
