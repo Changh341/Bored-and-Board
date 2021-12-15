@@ -17,6 +17,17 @@ router.get('/user/:id', asyncHandler(async (req, res) => {
   }
 }))
 
+router.get('/place/:id', asyncHandler(async (req, res) => {
+  const { id } = req.params
+  const bookings = await Booking.findAll({
+    where: { spotId: id },
+    attributes: ['startDate', 'endDate']
+  })
+  if (bookings) {
+    res.json(bookings)
+  }
+}))
+
 router.post('/', asyncHandler(async (req, res) => {
   const { spotId, userId, startDate, endDate } = req.body
   const newBooking = await Booking.create({
