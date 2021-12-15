@@ -181,7 +181,7 @@ module.exports = {
       },
       {
         spotId: 45,
-        url: 'https://i.imgur.com/8tg38g8.jpeg'
+        url: ''
       },
       {
         spotId: 46,
