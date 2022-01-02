@@ -25,6 +25,7 @@ const CreatePlaceForm = () => {
   const [city, setCity] = useState('')
   const [state, setState] = useState(states[0])
   const [description, setDescription] = useState('')
+  const [image, setImage] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,6 +39,7 @@ const CreatePlaceForm = () => {
       state,
       country: 'United States',
       description,
+      image
     };
 
     await dispatch(createPlace(payload));
@@ -48,6 +50,10 @@ const CreatePlaceForm = () => {
   if (!hostId) {
     return null
   }
+  const updateFile = (e) => {
+    const file = e.target.files[0];
+    if (file) setImage(file);
+  };
 
   return (
     <>
@@ -88,6 +94,12 @@ const CreatePlaceForm = () => {
               placeholder='City'
               required
               onChange={(event) => { setCity(event.target.value) }} />
+            <div>
+              <label>
+                Add a picture:
+                <input type="file" onChange={updateFile} />
+              </label>
+            </div>
             <textarea
               placeholder='Describe your place in 1000 characters. How many beds and baths? Whats included?'
               cols='80'

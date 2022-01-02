@@ -1,6 +1,7 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { Op } = require("sequelize");
+const { singleMulterUpload, singlePublicFileUpload } = require('../../awsS3');
 const { Place, Image } = require('../../db/models');
 const { requireAuth, restoreUser } = require('../../utils/auth');
 
@@ -54,8 +55,9 @@ router.get('/:id', asyncHandler(async (req, res) => {
 
 }))
 
-router.post('/', asyncHandler(async (req, res) => {
-  const { name, hostId, price, address, city, state, country, description, url } = req.body
+router.post('/', singleMulterUpload("image"), asyncHandler(async (req, res) => {
+  const { name, hostId, price, address, city, state, country, description } = req.body
+  const placePic = await singlePublicFileUpload(req.file);
   const newPlace = await Place.create({
     name,
     hostId,
@@ -68,28 +70,27 @@ router.post('/', asyncHandler(async (req, res) => {
   })
   const newImage = await Image.create({
     spotId: newPlace.id,
-    url
+    url: placePic
   })
   return res.json(newPlace);
 
 
 }))
 
-router.put('/edit/:id', asyncHandler(async (req, res) => {
-  const { name, hostId, price, address, city, state, country, description, url } = req.body
+router.put('/edit/:id', singleMulterUpload("image"), asyncHandler(async (req, res) => {
+  const { name, price, address, city, state, description } = req.body
   const { id } = req.params
+  const placePic = await singlePublicFileUpload(req.file);
   const updated = await Place.update({
     name,
-    hostId,
     price,
     address,
     city,
     state,
-    country,
     description
   }, { where: { id } })
   const updatedImage = await Image.update({
-    url
+    url: placePic
   }, { where: { spotId: id } })
   return res.json(req.body);
 

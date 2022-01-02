@@ -78,12 +78,23 @@ export const getOne = (id) => async (dispatch) => {
 }
 
 export const createPlace = (data) => async (dispatch) => {
+  const { name, hostId, price, address, city, state, country, description, image } = data
+  const formData = new FormData();
+  formData.append("name", name);
+  formData.append("hostId", hostId);
+  formData.append("price", price);
+  formData.append("address", address);
+  formData.append("city", city);
+  formData.append("state", state);
+  formData.append("country", country);
+  formData.append("description", description);
+  if (image) formData.append("image", image);
   const response = await csrfFetch('/api/places', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "multipart/form-data"
     },
-    body: JSON.stringify(data)
+    body: formData
   })
   if (response.ok) {
     const place = await response.json()
@@ -102,12 +113,23 @@ export const destroyPlace = (hostId, id) => async (dispatch) => {
 }
 
 export const changePlace = (data, id) => async (dispatch) => {
+  const { name, hostId, price, address, city, state, country, description, image } = data
+  const formData = new FormData();
+  formData.append("name", name);
+  formData.append("hostId", hostId);
+  formData.append("price", price);
+  formData.append("address", address);
+  formData.append("city", city);
+  formData.append("state", state);
+  formData.append("country", country);
+  formData.append("description", description);
+  if (image) formData.append("image", image);
   const response = await csrfFetch(`/api/places/edit/${id}`, {
     method: 'PUT',
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "multipart/form-data"
     },
-    body: JSON.stringify(data)
+    body: formData
   })
   if (response.ok) {
     const place = await response.json()

@@ -18,7 +18,7 @@ const PlaceBrowser = () => {
     } else {
       dispatch(getPlace());
     }
-  }, [dispatch]);
+  }, []);
 
 
   const [displayDetail, setDisplayDetail] = useState(false)

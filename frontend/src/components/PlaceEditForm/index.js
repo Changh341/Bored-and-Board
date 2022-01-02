@@ -23,6 +23,7 @@ const EditPlaceForm = () => {
   const [city, setCity] = useState(place[id].city)
   const [state, setState] = useState(place[id].state)
   const [description, setDescription] = useState(place[id].description)
+  const [image, setImage] = useState(null);
 
   const goBack = async () => {
     history.push('/myplaces')
@@ -40,6 +41,7 @@ const EditPlaceForm = () => {
       state,
       country: 'United States',
       description,
+      image
     };
 
     const place = await dispatch(changePlace(payload, id))
@@ -47,6 +49,10 @@ const EditPlaceForm = () => {
       history.push('/myplaces')
     }
   }
+  const updateFile = (e) => {
+    const file = e.target.files[0];
+    if (file) setImage(file);
+  };
 
   return (
     <div className='newplaceform-window'>
@@ -89,6 +95,12 @@ const EditPlaceForm = () => {
             required
             value={city}
             onChange={(event) => { setCity(event.target.value) }} />
+          <div>
+            <label>
+              Change Picture:
+              <input type="file" onChange={updateFile} />
+            </label>
+          </div>
           <textarea
             placeholder='Describe your place in 1000 characters. How many beds and baths? Whats included?'
             cols='80'
