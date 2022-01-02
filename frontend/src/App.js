@@ -33,8 +33,8 @@ function App() {
           <Route exact path="/">
             <div id='splash-div'>
               <span id='hp-quote'>Ready to find a boring place?</span>
+              <NavLink id='explore-btn' to='/places'>Explore</NavLink>
             </div>
-            <NavLink id='explore-btn' to='/places'>Explore</NavLink>
             <div id='discover-div'>
               <b id='popular-city'>Popular Cities</b>
               <div className='discover-city' onClick={(event) => popularCities('TX', 'Plano')} id='plano'>Plano, TX</div>

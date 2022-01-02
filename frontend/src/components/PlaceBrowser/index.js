@@ -65,8 +65,8 @@ const PlaceBrowser = () => {
             }
           })
         }
-        <Pagination totalPosts={place.length - 1} paginate={paginate} />
       </div>
+      <Pagination totalPosts={place.length - 1} paginate={paginate} />
       {displayDetail && <PlaceDetail displayDetail={setDisplayDetail} id={details} />}
     </>
   )

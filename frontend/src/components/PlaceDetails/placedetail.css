@@ -1,32 +1,30 @@
 .modal-background {
-  position: absolute;
-  width: 100%;
-  height: 110%;
-  background-color: rgba(41, 34, 34, 0.6);
-  top:0;
-  left:0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 #detailmodal {
   background-color: white;
-  width: 1000px;
-  height: 600px;
+  width: 65rem;
+  height: 40rem;
   z-index: 2;
   border: 1px solid black;
   border-radius: 12px;
   box-shadow: 1px 1px 2px black;
+  display: flex;
+  flex-direction: column;
 }
 
 #modal-container {
-  position: absolute;
-  top:0;
-  left:0;
-  width: 100%;
-  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,18 +34,17 @@
   background-color: transparent;
   border: none;
   font-size: medium;
+  position: absolute;
 }
 
 .x-btn:hover {
   cursor: pointer;
+  background-color: transparent;
 }
 
 #booking-placement {
   width: 325px;
   height: auto;
-  position: absolute;
-  top: 25%;
-  right: 24%;
   border: 1px solid black;
 }
 
@@ -77,9 +74,13 @@
 
 .detailed-house-image {
   border: 1px solid black;
-  width: 500px;
-  height: 245px;
+  width: 30rem;
+  height: 15rem;
   object-fit:contain;
   margin-left: 15px;
   bottom: 150px;
+}
+
+.top-details{
+  display: flex;
 }

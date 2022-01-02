@@ -34,11 +34,11 @@ const PlaceDetail = ({ displayDetail, id }) => {
 
 
   return (
-    <>
-      <div id='modal-container'>
-        <div className='modal-background' onClick={(event) => displayDetail(false)}>
-        </div>
-        <div id='detailmodal'>
+    <div id='modal-container'>
+      <div className='modal-background' onClick={(event) => displayDetail(false)}>
+      </div>
+      <div id='detailmodal'>
+        <div className="top-details">
           <button className='x-btn' onClick={(event) => displayDetail(false)}> X </button>
           <div id='detail-content'>
             <h1>{place[id].name}</h1>
@@ -47,15 +47,15 @@ const PlaceDetail = ({ displayDetail, id }) => {
             <p>{place[id].description}</p>
             <span>${place[id].price}/night</span>
           </div>
-          <div id='place-pictures'>
-            {place[id].Image ? houseImg(place[id].Image.url) : houseImg()}
-          </div>
           <div id='booking-placement'>
             <BookingForm place={place} id={id} />
           </div>
         </div>
+        <div id='place-pictures'>
+          {place[id].Image ? houseImg(place[id].Image.url) : houseImg()}
+        </div>
       </div>
-    </>
+    </div>
   )
 }
 

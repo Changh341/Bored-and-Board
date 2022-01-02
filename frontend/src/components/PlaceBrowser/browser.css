@@ -2,8 +2,8 @@
   display: flex;
   justify-content: start;
   flex-direction: column;
-  width: 250px;
-  height: 275px;
+  width: 16rem;
+  height: 17rem;
   border: 1px solid black;
   margin-top: 10px;
   margin-left: 10px;
@@ -34,16 +34,13 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  width: 90%;
-  height: 90%;
+  width: 100%;
 }
 
 .pagination {
-  position: absolute;
-  bottom: 0;
   display: flex;
-  right: 40%;
-  align-items: center;
+  margin: 0 auto;
+  justify-content: center;
 }
 
 .page-numbers {
@@ -59,12 +56,11 @@
 
 
 .housePic{
-  border: 1px solid black;
-width: 200px;
-height: 125px;
+border: 1px solid black;
+width: 10rem;
+height: 6rem;
 object-fit: cover;
-margin-left: 15px;
-bottom: 150px;
+margin-left: 0 auto;
 }
 
 .placecard-container{

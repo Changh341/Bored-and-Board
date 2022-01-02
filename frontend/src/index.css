@@ -4,7 +4,7 @@
 
 html *{
   font-family: 'Cambria', Georgia, serif;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .splash-links {
@@ -25,7 +25,7 @@ html *{
 }
 
 body {
-  width: 99vw;
+  width: 100vw;
   min-height: 99%;
   overflow-x: hidden;
 }
@@ -42,3 +42,33 @@ button:hover{
   text-decoration: underline;
 }
 
+@media  screen and (max-width: 1600px){
+  html {
+    font-size: 16px;
+  }
+  body {  
+    align-items: flex-start;
+  }
+}
+
+
+@media  screen and (max-width: 1200px){
+  html {
+    font-size: 14px;
+  }
+  body {  
+    align-items: flex-start;
+  }
+}
+
+@media  screen and (max-width: 600px){
+  html {
+    font-size: 12px;
+  }
+}
+
+@media  screen and (max-width: 425px){
+  html {
+    font-size: 9px;
+  }
+}

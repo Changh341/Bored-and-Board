@@ -9,23 +9,13 @@ const { User, Place, Booking } = require('../../db/models');
 
 const router = express.Router();
 
-const todayPlusDays = (days) => {
-  let today = new Date();
-  const dd = today.getDate() + days
-  const mm = today.getMonth() + 1;
-  const yyyy = today.getFullYear();
-
-  if (dd < 10) {
-    dd = '0' + dd;
-  }
-
-  if (mm < 10) {
-    mm = '0' + mm;
-  }
-
-  today = yyyy + '-' + mm + '-' + dd;
-  return today
+Date.prototype.addDays = function (days) {
+  var date = new Date(this.valueOf());
+  date.setDate(date.getDate() + days);
+  return date;
 }
+
+let date = new Date()
 
 const validateSignup = [
   check('email')
@@ -97,8 +87,8 @@ router.post(
     const booking = await Booking.create({
       spotId: bookedPlace.id,
       userId: user.id,
-      startDate: todayPlusDays(2),
-      endDate: todayPlusDays(3)
+      startDate: date.addDays(3),
+      endDate: date.addDays(6)
     })
 
     return res.json({
