@@ -68,10 +68,17 @@ router.post('/', singleMulterUpload("image"), asyncHandler(async (req, res) => {
     country,
     description
   })
-  const newImage = await Image.create({
-    spotId: newPlace.id,
-    url: placePic
-  })
+  if (placePic) {
+    const newImage = await Image.create({
+      spotId: newPlace.id,
+      url: placePic
+    })
+  } else {
+    const newImage = await Image.create({
+      spotId: newPlace.id,
+      url: null
+    })
+  }
   return res.json(newPlace);
 
 
@@ -89,9 +96,11 @@ router.put('/edit/:id', singleMulterUpload("image"), asyncHandler(async (req, re
     state,
     description
   }, { where: { id } })
-  const updatedImage = await Image.update({
-    url: placePic
-  }, { where: { spotId: id } })
+  if (placePic) {
+    const updatedImage = await Image.update({
+      url: placePic
+    }, { where: { spotId: id } })
+  }
   return res.json(req.body);
 
 
