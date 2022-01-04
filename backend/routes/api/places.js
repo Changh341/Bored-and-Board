@@ -10,7 +10,6 @@ const router = express.Router();
 router.get('/', asyncHandler(async (req, res) => {
 
   const places = await Place.findAll({
-    limit: 100,
     include: Image
   })
 
@@ -22,7 +21,6 @@ router.get('/', asyncHandler(async (req, res) => {
 router.get('/search/:state/:city', asyncHandler(async (req, res) => {
   const { city, state } = req.params
   const places = await Place.findAll({
-    limit: 100,
     include: Image,
     where: { [Op.and]: [{ city: city }, { state: state }], }
   })
@@ -79,7 +77,13 @@ router.post('/', singleMulterUpload("image"), asyncHandler(async (req, res) => {
       url: null
     })
   }
-  return res.json(newPlace);
+  const place = await Place.findOne({
+    where: {
+      id: newPlace.id
+    },
+    include: Image
+  })
+  return res.json(place);
 
 
 }))
@@ -101,7 +105,13 @@ router.put('/edit/:id', singleMulterUpload("image"), asyncHandler(async (req, re
       url: placePic
     }, { where: { spotId: id } })
   }
-  return res.json(req.body);
+  const place = await Place.findOne({
+    where: {
+      id
+    },
+    include: Image
+  })
+  return res.json(place);
 
 
 }))

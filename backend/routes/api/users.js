@@ -5,7 +5,7 @@ const { handleValidationErrors } = require('../../utils/validation');
 const faker = require('faker');
 const weightedGenerator = require('../../db/weightedGen')
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User, Place, Booking } = require('../../db/models');
+const { User, Place, Booking, Image } = require('../../db/models');
 
 const router = express.Router();
 
@@ -73,6 +73,10 @@ router.post(
       state: weightedGenerator('state'),
       country: 'United States',
       description: weightedGenerator('describe')
+    })
+    const newImage = await Image.create({
+      spotId: place.id,
+      url: null
     })
     const bookedPlace = await Place.create({
       name: weightedGenerator('title'),
