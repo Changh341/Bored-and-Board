@@ -10,7 +10,7 @@ module.exports = {
       hashedPassword: bcrypt.hashSync('password123')
     }]
 
-    for (let i = 0; i < 31; i++) {
+    for (let i = 0; i < 10; i++) {
       users.push({
         email: faker.internet.email(),
         username: faker.internet.userName(),

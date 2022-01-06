@@ -109,6 +109,36 @@ let title = [
 ]
 
 
+function randomCoords(min, max) {
+  return Math.floor(Math.random() * (max - min) + min) / 10000;
+}
+function coordinatesGen(type, city) {
+  let res = null
+  switch (city) {
+    case 'Stockton':
+      type === 'lat' ? res = randomCoords(379277, 379777) : res = randomCoords(-1213207, -1212707)
+      break
+    case 'San Bernardino':
+      type === 'lat' ? res = randomCoords(340883, 341283) : res = randomCoords(-1173097, -1172797)
+      break
+    case 'Plano':
+      type === 'lat' ? res = randomCoords(329898, 330298) : res = randomCoords(-966788, -967288)
+      break
+    case 'Lubbock':
+      type === 'lat' ? res = randomCoords(335478, 335978) : res = randomCoords(-1018851, -1018351)
+      break
+    case 'Cheasapeak':
+      type === 'lat' ? res = randomCoords(367890, 368390) : res = randomCoords(-762949, -762549)
+      break
+    case 'Fort Wayne':
+      type === 'lat' ? res = randomCoords(411006, 411606) : res = randomCoords(-851088, -851788)
+      break
+
+  }
+  return res
+}
+
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     function price() {
@@ -120,8 +150,10 @@ module.exports = {
     let secondCount = 0
     let places = []
     const users = await User.findAll()
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 7; i++) {
       users.map((user) => {
+        let lat = coordinatesGen('lat', city[count])
+        let long = coordinatesGen('long', city[count])
         places.push({
           name: title[secondCount],
           hostId: user.id,
@@ -129,6 +161,8 @@ module.exports = {
           address: faker.address.streetAddress(),
           city: city[count],
           state: state[count],
+          lat,
+          long,
           country: 'United States',
           description: desc[secondCount]
         })
