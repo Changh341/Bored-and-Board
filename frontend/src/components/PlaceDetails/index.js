@@ -48,10 +48,11 @@ const PlaceDetail = ({ displayDetail, id }) => {
     margin: '10px'
   }
   const center = {
-    lat: parseInt(place[id].lat),
-    lng: parseInt(place[id].long)
+    lat: parseFloat(place[id].lat),
+    lng: parseFloat(place[id].long)
   }
 
+  console.log(center)
 
 
 

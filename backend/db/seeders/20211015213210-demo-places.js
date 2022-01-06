@@ -116,22 +116,22 @@ function coordinatesGen(type, city) {
   let res = null
   switch (city) {
     case 'Stockton':
-      type === 'lat' ? res = randomCoords(379277, 379777) : res = randomCoords(-1213207, -1212707)
+      type === 'lat' ? res = randomCoords(379600, 379699) : res = randomCoords(-1212756, -1212780)
       break
     case 'San Bernardino':
-      type === 'lat' ? res = randomCoords(340883, 341283) : res = randomCoords(-1173097, -1172797)
+      type === 'lat' ? res = randomCoords(341145, 341199) : res = randomCoords(-1173099, -1173045)
       break
     case 'Plano':
-      type === 'lat' ? res = randomCoords(329898, 330298) : res = randomCoords(-966788, -967288)
+      type === 'lat' ? res = randomCoords(330245, 330299) : res = randomCoords(-966999, -966945)
       break
     case 'Lubbock':
-      type === 'lat' ? res = randomCoords(335478, 335978) : res = randomCoords(-1018851, -1018351)
+      type === 'lat' ? res = randomCoords(335745, 335799) : res = randomCoords(-1018599, -1018545)
       break
     case 'Cheasapeak':
-      type === 'lat' ? res = randomCoords(367890, 368390) : res = randomCoords(-762949, -762549)
+      type === 'lat' ? res = randomCoords(367745, 367799) : res = randomCoords(-762899, -762845)
       break
     case 'Fort Wayne':
-      type === 'lat' ? res = randomCoords(411006, 411606) : res = randomCoords(-851088, -851788)
+      type === 'lat' ? res = randomCoords(410945, 410999) : res = randomCoords(-851399, -851345)
       break
 
   }
@@ -154,6 +154,7 @@ module.exports = {
       users.map((user) => {
         let lat = coordinatesGen('lat', city[count])
         let long = coordinatesGen('long', city[count])
+        console.log(lat, long)
         places.push({
           name: title[secondCount],
           hostId: user.id,
