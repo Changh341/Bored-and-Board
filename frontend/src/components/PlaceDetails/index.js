@@ -2,7 +2,11 @@
 import { useDispatch, useSelector } from "react-redux"
 import BookingForm from "../BookingForm/detailForm.js"
 import './placedetail.css'
-
+import {
+  GoogleMap,
+  useLoadScript,
+  Marker
+} from "@react-google-maps/api";
 
 
 const PlaceDetail = ({ displayDetail, id }) => {
@@ -12,6 +16,13 @@ const PlaceDetail = ({ displayDetail, id }) => {
       return state.session.user.id
     } else { return null }
   })
+
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY
+  })
+
+  if (loadError) return 'Error loading maps'
+  if (!isLoaded) return "Loading Maps"
 
   const editTool = (userId == place[id].hostId)
 
@@ -31,6 +42,17 @@ const PlaceDetail = ({ displayDetail, id }) => {
       return <img src='https://i.imgur.com/A70WZMn.jpg' className='detailed-house-image' />
     }
   }
+  const mapContainerStyle = {
+    width: '50rem',
+    height: '20rem',
+    margin: '10px'
+  }
+  const center = {
+    lat: parseInt(place[id].lat),
+    lng: parseInt(place[id].long)
+  }
+
+
 
 
   return (
@@ -51,8 +73,13 @@ const PlaceDetail = ({ displayDetail, id }) => {
             <BookingForm place={place} id={id} />
           </div>
         </div>
-        <div id='place-pictures'>
-          {place[id].Image ? houseImg(place[id].Image.url) : houseImg()}
+        <div className="detail-btm">
+          <GoogleMap mapContainerStyle={mapContainerStyle} zoom={15} center={center} >
+            <Marker position={center}></Marker>
+          </GoogleMap>
+          <div id='place-pictures'>
+            {place[id].Image ? houseImg(place[id].Image.url) : houseImg()}
+          </div>
         </div>
       </div>
     </div>

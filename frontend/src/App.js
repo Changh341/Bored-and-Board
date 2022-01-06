@@ -12,14 +12,22 @@ import EditPlaceForm from "./components/PlaceEditForm";
 import BookingUserView from "./components/BookingUserView";
 import { NavLink } from "react-router-dom";
 import BookingConfirmation from "./components/BookingForm";
+import {
+  GoogleMap,
+  useLoadScript,
+  Marker
+} from "@react-google-maps/api";
 
 function App() {
   const dispatch = useDispatch();
   const history = useHistory()
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [load, setLoad] = useState(false);
   useEffect(() => {
-    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    dispatch(sessionActions.restoreUser()).then(() => setLoad(true));
   }, [dispatch]);
+
+
+
 
   const popularCities = (state, city) => {
     window.location.href = `searches/${state}/${city}`
@@ -27,8 +35,8 @@ function App() {
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
+      <Navigation load={load} />
+      {load && (
         <Switch>
           <Route exact path="/">
             <div id='splash-div'>
